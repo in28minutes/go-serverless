@@ -1,0 +1,52 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	node[shape=none,width=1]
+	edge[fontname=Arial, fontsize=20, penwidth=3]
+	graph [pad=".75", ranksep="0.05", nodesep="0.25"];
+
+
+	x -> a0
+	x -> a1 [label="             "]
+
+	a0 -> b00
+	a0 -> b01
+
+	a1 -> b10
+	a1 -> b11 [label="    "]
+
+	subgraph cluster_20 {
+		
+		a0[image="elb.png",label=""]
+
+		subgraph cluster_11 {
+			label="AZ2";
+			b00[image="ec2-instances.png",label=""]
+		}
+
+		subgraph cluster_12 {
+			label="AZ1";
+			b01[image="ec2-instances.png",label=""]
+		}
+		label="Region - US-EAST-1 ";
+	}
+
+	subgraph cluster_21 {
+
+		a1[image="elb.png",label=""]
+
+		subgraph cluster_13 {
+			label="AZ4";
+			b10[image="ec2-instances.png",label=""]
+		}
+
+		subgraph cluster_14 {
+			label="AZ3";
+			b11[image="ec2-instances.png",label=""]
+		}
+		label="Region - US-EAST-2 ";
+	}
+
+	x [image="route53.png",label=""]
+	
+}

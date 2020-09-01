@@ -1,0 +1,44 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+    s -> a [label = "            "]
+    s -> b [label="automatic failover" style="dashed"]
+    a -> b [label="synchronous"]
+    a -> c [label="asynchronous"]
+
+	subgraph cluster_region {
+	
+    subgraph cluster_az1 {
+    subgraph cluster_pubsub {
+        s[image="ec2-instance.png",label=""]
+        label="public subnet"
+    }
+    subgraph cluster_prisub {
+        a[image="rds.png",label=""]
+        label = "private subnet"
+    }
+    label = "az1"
+    }
+
+    subgraph cluster_az2 {
+    subgraph cluster_privsub  {
+    subgraph cluster_standby {
+        b[image="rds.png",label=""]
+        label = "rds stand by"
+    }
+    subgraph cluster_readreplica {
+        c[image="rds.png",label=""]
+        label = "rds read replica"
+    }
+    label="az2"
+    }
+    label="private subnet"
+    }
+    label="us-west-1"
+    }
+
+
+
+}

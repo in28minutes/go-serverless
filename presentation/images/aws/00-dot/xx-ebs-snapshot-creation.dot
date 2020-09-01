@@ -1,0 +1,31 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+
+    a -> d
+    d -> b
+    b -> c [label="snapshot creation"]
+
+    c -> a [label="triggers"]
+
+    a -> f [label = "invokes"]
+    f -> g [label="cross region copy"]
+
+	subgraph cluster_20 {
+        a[image="cloudwatch.png",label=""]
+        b[image="ebs.png",label=""]
+        c[image="s3-bucket.png",label=""]
+        d[image="aws-lamdba.png",label=""]
+        f[image="aws-lamdba.png",label=""]
+        label = "us-east-1"
+    }
+
+	subgraph cluster_30 {
+        g[image="s3-bucket.png",label=""]
+        label = "us-west-1"
+    }
+
+
+}

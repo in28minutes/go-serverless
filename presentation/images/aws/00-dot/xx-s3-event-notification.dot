@@ -1,0 +1,20 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+
+    a -> b 
+    a -> c 
+    a -> d
+
+    a[image="s3-bucket.png",label=""]
+
+
+    subgraph cluster_0 {
+        b[image="sns-topic.png",label=""]
+        c[image="sqs.png",label=""]
+        d[image="aws-lambda-function.png",label=""]
+        label = "S3 Notification event destinations"
+    }
+}

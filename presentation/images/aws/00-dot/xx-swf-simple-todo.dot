@@ -1,0 +1,35 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> c [label=""]
+    b -> c [label=""]
+    c -> d [label=""]
+    
+    d -> e[dir=back,label="            "];
+    d -> f[dir=back,label="            "];
+
+
+    subgraph cluster_origin {
+    a[image="api-gateway.png",label=""]
+    b[image="dynamodb.png",label=""]
+    }
+    
+    subgraph cluster_workflow {
+    c[image="aws-lambda-function.png",label=""]
+    label="Workflow Layer"
+    }
+    subgraph cluster_batch {
+    d[image="aws-batch.png",label=""]
+    label="Batch Layer"
+    }
+    subgraph cluster_job {
+    e[image="s3.png",label=""]
+    f[image="ecr.png",label=""]
+    label="Job Layer"
+    }
+    
+
+}

@@ -1,0 +1,35 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+	subgraph cluster_11 {
+		
+		start -> a10 [label = "text"];
+		start -> a20 [label = "text"];
+
+		subgraph cluster_1 {
+			a10 -> b11 [label = "    "]
+			a10 -> b12
+			label = "AZ1";
+		}
+
+		subgraph cluster_2 {
+			a20 -> b21 
+			a20 -> b22
+			label = "AZ2";
+		}
+		label="Region - US-EAST-1 ";
+	}
+	a10,a20[image="elb.png",label="",width=0.25]
+	start[image="route53.png",label=""]
+	b11,b12,b21,b22[image="ec2-instance.png",label=""]
+	labelloc="t";
+	label="";
+}
+#-Gsize=9,15\! -Gdpi=100
+	#rankdir = LR
+	#node[shape=none,width=1]
+	#s3 -> ebs    
+	#s3[image="s3.png",label=""]
+	#ebs[image="ebs.png",label=""]

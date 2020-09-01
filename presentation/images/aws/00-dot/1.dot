@@ -1,0 +1,34 @@
+digraph G {
+
+	//rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> c [label=""]
+    b -> c [label=""]
+    c -> d [label=""]
+    d -> e [label="            "]
+    d -> f [label="            "]
+    
+
+    subgraph cluster_origin {
+        a[image="cloudwatch.png",label=""]
+    }
+
+    subgraph cluster_workflow {
+        c[image="aws-lambda-function.png",label=""]
+        label="Decider Layer"
+    }
+
+    subgraph cluster_decider {
+        b[image="aws-lambda-function.png",label=""]
+        label="Decider Layer"
+    }
+
+    subgraph cluster_batch {
+        d[image="aws-lambda-function.png",label=""]
+        label="Worker Layer"
+    }
+
+}

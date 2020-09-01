@@ -1,0 +1,32 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+
+    a -> b 
+    a -> j
+    b -> c
+    c -> d 
+    d -> e0
+    d -> e1
+    d -> e2
+    e0 -> g
+    g -> h
+    e1 -> f
+    e2 -> i
+
+
+    a[image="system.png",label=""]
+    b[image="route53.png",label=""]
+    c[image="cloudfront.png",label=""]
+	d[image="api-gateway.png",label=""]
+	e0,e1,e2[image="aws-lamdba.png",label=""]
+    f[image="rds.png",label=""]
+    g[image="sns.png",label=""]
+    h[image="ses.png",label=""]
+    i[image="s3.png",label=""]
+    j[image="cognito.png",label=""]
+
+
+}

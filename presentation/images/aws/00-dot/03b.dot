@@ -1,0 +1,26 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20, penwidth=3]
+	
+	node[shape=none,width=1]
+	graph [pad=".75", ranksep="0.05", nodesep="0.25"];
+
+	a -> b00 #[style=invis]
+	a -> b01
+	a -> b10 
+	a -> b11 [label="           "]
+
+	subgraph cluster_11 {
+		label="AZ1";
+		b00,b01[image="ec2-instance.png",label=""]
+	}
+
+	subgraph cluster_12 {
+		label="AZ2";
+		b10,b11[image="ec2-instance.png",label=""]
+	}
+
+	a[image="elb.png",label="",xlabel=<See also: <BR/>American Revolution>]
+	
+}

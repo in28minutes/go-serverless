@@ -1,0 +1,8 @@
+digraph G {
+	#rankdir = LR
+	node[shape=none,width=1]
+	a -> b -> c
+	a[image="cloudfront.png",label=""]
+	b[image="s3.png",label=""]
+	c[image="sns.png",label=""]
+}
