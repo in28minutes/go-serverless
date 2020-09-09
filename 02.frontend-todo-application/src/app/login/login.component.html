@@ -1,0 +1,22 @@
+<H1>Login!</H1>
+
+<div class="container">
+  <div class="alert alert-warning" *ngIf='invalidLogin'>{{errorMessage}}</div>
+
+  <form>
+    <fieldset class="form-group">
+      <label>User Name </label>
+      <input type="text" name="username" class="form-control" [(ngModel)]="username">
+    </fieldset>
+    <fieldset class="form-group">
+      <label>Password </label>
+      <input type="password" name="password" class="form-control" [(ngModel)]="password">
+    </fieldset>
+
+    <button (click)=handleLogin() class="btn btn-primary mr-1">Hardcoded Login</button>
+    <button (click)=handleAWSCognitoLogin() class="btn btn-success mr-1">Login with Cognito</button>
+    <a href="https://serverlesstodo.b2clogin.com/serverlesstodo.onmicrosoft.com/oauth2/v2.0/authorize?p=B2C_1_todo_signup_signin&client_id=ff8d79d5-8a36-4b8e-98a0-232da804f864&nonce=defaultNonce&redirect_uri=http%3A%2F%2Flocalhost%3A4200&scope=openid%20https%3A%2F%2Fserverlesstodo.onmicrosoft.com%2Ftodo-backend-uri-in28minutes%2Fwrite%20https%3A%2F%2Fserverlesstodo.onmicrosoft.com%2Ftodo-backend-uri-in28minutes%2Fdemo.read&response_type=id_token%20token&prompt=login"
+      class="btn btn-success mr-1">Azure Login</a>
+
+  </form>
+</div>

@@ -1,0 +1,131 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: 'todo-sam-app
+
+  Sample SAM Template for todo-sam-app
+
+  '
+Globals:
+  Function:
+    Timeout: 3
+    Runtime: nodejs12.x
+    CodeUri: todos/
+    Environment:
+      Variables:
+        TODO_TABLE:
+          Ref: TodoSamTable
+  HttpApi:
+    CorsConfiguration:
+      AllowOrigins:
+      - '*'
+      AllowHeaders:
+      - '*'
+      AllowMethods:
+      - '*'
+    Auth:
+      Authorizers:
+        OAuth2Authorizer:
+          JwtConfiguration:
+            issuer: https://cognito-idp.us-east-1.amazonaws.com/us-east-1_GMdZm52Wh
+            audience:
+            - 7h6ivmhtdrfduhu4jjvfjqtduo
+          IdentitySource: $request.header.Authorization
+      DefaultAuthorizer: OAuth2Authorizer
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: helloworld.lambdaHandler
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /hello
+            Method: get
+      CodeUri: HelloWorldFunction
+  ListTodosFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: listTodos.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos
+            Method: get
+      CodeUri: ListTodosFunction
+  GetTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: getTodo.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos/{id}
+            Method: get
+      CodeUri: GetTodoFunction
+  UpdateTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: updateTodo.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos/{id}
+            Method: put
+      CodeUri: UpdateTodoFunction
+  CreateTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: createTodo.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos
+            Method: post
+      CodeUri: CreateTodoFunction
+  DeleteTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: deleteTodo.handler
+      Policies:
+      - DynamoDBCrudPolicy:
+          TableName:
+            Ref: TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos/{id}
+            Method: delete
+      CodeUri: DeleteTodoFunction
+  TodoSamTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+Outputs:
+  HelloWorldApi:
+    Description: API Gateway endpoint URL for Prod stage for Hello World function
+    Value:
+      Fn::Sub: https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/hello

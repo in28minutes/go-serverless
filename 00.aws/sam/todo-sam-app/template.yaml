@@ -1,0 +1,142 @@
+AWSTemplateFormatVersion: "2010-09-09"
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  todo-sam-app
+
+  Sample SAM Template for todo-sam-app
+
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+    Runtime: nodejs12.x
+    CodeUri: todos/
+    Environment:
+      Variables:
+        # TODO_TABLE: todo
+        TODO_TABLE: !Ref TodoSamTable
+  HttpApi:
+    CorsConfiguration:
+      AllowOrigins:
+        - "*"
+      AllowHeaders:
+        - "*"
+      AllowMethods:
+        - "*"
+    Auth:
+      Authorizers:
+        OAuth2Authorizer:
+          JwtConfiguration:
+            issuer: "https://cognito-idp.us-east-1.amazonaws.com/us-east-1_GMdZm52Wh"
+            audience:
+              - 7h6ivmhtdrfduhu4jjvfjqtduo
+          IdentitySource: "$request.header.Authorization"
+      DefaultAuthorizer: OAuth2Authorizer
+
+Resources:
+  HelloWorldFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      # CodeUri: todos/
+      Handler: helloworld.lambdaHandler
+      # Runtime: nodejs12.x
+      Events:
+        HelloWorld:
+          Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /hello
+            Method: get
+
+  ListTodosFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      # CodeUri: todos/
+      Handler: listTodos.handler
+      # Runtime: nodejs12.x
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /todos
+            Method: get
+
+  GetTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: getTodo.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos/{id}
+            Method: get
+
+  UpdateTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: updateTodo.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos/{id}
+            Method: put
+
+  CreateTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: createTodo.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos
+            Method: post
+
+  DeleteTodoFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Handler: deleteTodo.handler
+      Policies:
+        - DynamoDBCrudPolicy:
+            TableName: !Ref TodoSamTable
+      Events:
+        HelloWorld:
+          Type: HttpApi
+          Properties:
+            Path: /todos/{id}
+            Method: delete
+
+  TodoSamTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      PrimaryKey:
+        Name: id
+        Type: String
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  HelloWorldApi:
+    Description: "API Gateway endpoint URL for Prod stage for Hello World function"
+    # Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/hello/"
+    Value: !Sub "https://${ServerlessHttpApi}.execute-api.${AWS::Region}.amazonaws.com/hello"
+  # HelloWorldFunction:
+  #   Description: "Hello World Lambda Function ARN"
+  #   Value: !GetAtt HelloWorldFunction.Arn
+  # HelloWorldFunctionIamRole:
+  #   Description: "Implicit IAM Role created for Hello World function"
+  #   Value: !GetAtt HelloWorldFunctionRole.Arn

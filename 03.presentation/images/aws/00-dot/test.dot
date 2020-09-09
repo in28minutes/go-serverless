@@ -1,0 +1,7 @@
+digraph G {
+	rankdir = LR
+	node[shape=none,width=1]
+	s3 -> ebs    
+	s3[image="s3.png",label=""]
+	ebs[image="ebs.png",label=""]
+}

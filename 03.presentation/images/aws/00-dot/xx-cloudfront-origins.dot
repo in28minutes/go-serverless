@@ -1,0 +1,25 @@
+digraph G {
+	//rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> b 
+    a -> c 
+    a -> d
+    a -> f
+
+    a[image="cloudfront.png",label=""]
+
+    subgraph cluster_origin {
+    b[image="ec2-instances.png",label=""]
+	c[image="s3-bucket.png",label=""]
+	d[image="elb.png",label=""]
+    label="origins"
+    }
+    subgraph cluster_custom {
+    f[image="server.png",label=""]
+    label="custom origins"
+    }
+
+}

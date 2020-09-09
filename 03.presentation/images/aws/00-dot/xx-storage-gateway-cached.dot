@@ -1,0 +1,21 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> b 
+    b -> c 
+    b -> e
+    subgraph cluster_onprem {
+    a[image="file-icon.png",label=""]
+    b[image="storage-gateway.png",label=""]
+    c[image="storage-gateway-cached-volume.png",label=""]
+    label="on premise"
+    }
+    subgraph cluster_cloud {
+        e[image="s3-bucket.png",label=""]
+        label="us-west-1"
+    }
+
+}

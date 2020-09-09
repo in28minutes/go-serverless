@@ -1,0 +1,16 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+
+	a -> b0 [label="      "]
+	a -> b1
+
+	subgraph cluster_11 {
+		a[image="elb.png",label=""]
+		b0,b1[image="ec2-instance.png",label=""]
+		label="Some AZ";
+	}
+
+}

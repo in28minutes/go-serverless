@@ -1,0 +1,27 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> b 
+    b -> c 
+    c -> d
+    d -> f
+    d -> g
+
+    a[image="system.png",label=""]
+
+    subgraph cluster_onprem {
+    b[image="route53.png",label=""]
+	c[image="api-gateway.png",label=""]
+	d[image="aws-lamdba.png",label=""]
+    subgraph cluster_db {
+    f[image="redis.png",label=""]
+    g[image="rds.png",label=""]
+    label="data base"
+    }
+    label="Aws"
+    }
+
+}

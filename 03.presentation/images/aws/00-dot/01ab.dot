@@ -1,0 +1,7 @@
+digraph G {
+	rankdir = LR
+	node[shape=none,width=1]
+	a -> b    
+	a[image="rds-master.png",label=""]
+	b[image="rds-standby.png",label=""]
+}

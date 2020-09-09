@@ -1,0 +1,29 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+    edge[fontname=Arial, fontsize=20, penwidth=3]
+	
+	node[shape=none,width=1]
+	graph [pad=".1", ranksep="0.05", nodesep="0.25"];
+
+
+	a -> b [label="      "]
+    b -> c [label="      "]
+    c -> d [label="      "]
+
+
+	subgraph cluster_11 {
+		a[image="user.png",label=""]
+		b[image="aws-api-gateway.png",label=""]
+		label="Public Subnet";
+	}
+    subgraph cluster_12 {
+		c[image="aws-lamdba.png",label=""]
+		label="Private Subnet";
+	}
+    subgraph cluster_13 {
+		d[image="rds.png",label=""]
+		label="Private Subnet";
+	}
+
+}

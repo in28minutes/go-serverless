@@ -1,0 +1,25 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> b [label="request object"]
+    b -> c [label="generate signed url"]
+    a -> d [label="access using signed url"]
+    d -> e
+
+    a[image="user.png",label=""]
+
+    subgraph cluster_origin {
+    b[image="api-gateway.png",label=""]
+    c[image="aws-lambda-function.png",label=""]
+    label=""
+    }
+    subgraph cluster_custom {
+    d[image="edge-location.png",label=""]
+	e[image="s3-bucket.png",label=""]
+    label=""
+    }
+
+}

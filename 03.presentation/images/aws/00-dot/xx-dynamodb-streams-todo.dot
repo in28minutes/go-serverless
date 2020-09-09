@@ -1,0 +1,27 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none width=2 margin=0]
+
+    a -> b [label=""]
+    b -> c [label=""]
+    c -> d [label=""]
+    d -> e [label=""]
+    e -> f
+    f -> g
+    
+    a[image="user.png",label=""]
+
+    subgraph cluster_origin {
+    b[image="aws-api-gateway.png",label=""]
+    c[image="aws-lambda-function.png",label=""]
+    d[image="dynamodb.png",label=""]
+    e[image="dynamostreams.png",label=""]
+    f[image="aws-lambda-function.png",label=""]
+    g[image="sns.png",label=""]
+    label=""
+    }
+    
+
+}

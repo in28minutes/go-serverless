@@ -1,0 +1,23 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+
+	a -> b
+	b -> c
+	c -> d
+
+	subgraph cluster_11 {
+		label="Public Subnet";
+		b[image="system.png",label=""]
+	}
+
+	subgraph cluster_12 {
+		label="Private Subnet";
+		c[image="ec2-instance.png",label=""]
+		d[image="rds.png",label=""]
+	}
+
+	a[image="user.png",label=""]	
+}

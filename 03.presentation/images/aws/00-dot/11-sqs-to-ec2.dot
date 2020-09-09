@@ -1,0 +1,9 @@
+digraph G {
+	rankdir = LR
+	node[shape=none,width=1]
+	a -> b -> c -> d
+	a[image="elb.png",label=""]
+	b[image="sqs.png",label=""]
+	c[image="ec2-instances.png",label=""]
+	d[image="rds.png",label=""]
+}

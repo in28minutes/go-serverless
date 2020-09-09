@@ -1,0 +1,9 @@
+digraph G {
+	#rankdir = LR
+	node[shape=none,width=1]
+	a -> b -> c -> d
+	a[image="codecommit.png",label=""]
+	b[image="codebuild.png",label=""]
+	c[image="codedeploy.png",label=""]
+	d[image="ec2-instances.png",label=""]
+}

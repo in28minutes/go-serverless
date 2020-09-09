@@ -1,0 +1,26 @@
+digraph G {
+	rankdir = LR
+	graph[fontname=Arial, fontcolor=brown, fontsize=25]
+	edge[fontname=Arial, fontsize=20]
+	node[shape=none,width=1]
+
+    a -> b0 [label="30 days"]
+    b0 -> c 
+    c -> b1 [label="30 days"]
+    b1 -> d
+
+    subgraph cluster_0 {
+    a[image="s3-bucket.png",label=""]
+    label = "S3 Standard"
+    }
+    b0,b1[image="clock.png",label=""]
+    subgraph cluster_1 {
+    c[image="s3-bucket.png",label=""]
+    label = "S3 Infrequent"
+    }
+    subgraph cluster_2 {
+    label = "Archive"
+    d[image="glacier.png",label=""]
+    }
+
+}
