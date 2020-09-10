@@ -1,11 +1,16 @@
-# [TITLE_OF_THE_BEST_COURSE]
+# Go Serverless with AWS Lambda and Azure Functions
 
 TODO : ADD COURSE IMAGE
 
-## Caption for the course.
+## Learn Serverless Architecture with AWS Lambda and Azure Functions. JavaScript ( nodejs) and python framework examples and patterns.
 
-## Course Checklist
+Categories: Amazon AWS, AWS Lambda, Microsoft Azure, 
 
+## Recording Todo List
+
+## Course Release Checklist
+- Cognito (NOT IN FREE TIER)
+- Make Github Repo Public
 - Course Content
   - Title, SubTitle and Description with Keyword Analysis (wordcounter.net)
   - Course Image
@@ -34,19 +39,10 @@ TODO : ADD COURSE IMAGE
 
 ## Getting Started
 
-#### Introduction Videos
-
-- Eclipse - https://courses.in28minutes.com/p/eclipse-tutorial-for-beginners
-- Maven - https://courses.in28minutes.com/p/maven-tutorial-for-beginners-in-5-steps
-- JUnit - https://courses.in28minutes.com/p/junit-tutorial-for-beginners
-- Mockito - https://courses.in28minutes.com/p/mockito-for-beginner-in-5-steps
 
 #### Required Tools
-
 - Node v8+ for npm
 - Visual Studio Code - Latest Version
-- Java 8+
-- Eclipse - Oxygen+ - (Embedded Maven From Eclipse)
 
 #### Installing Node Js (npm) & Visual Studio Code 
 
@@ -56,16 +52,6 @@ TODO : ADD COURSE IMAGE
   - Step 02 - Quick Introduction to NPM
   - Step 03 - Installing Visual Studio Code - Front End Java Script Editor
 
-#### Installing Java, Eclipse & Embedded Maven
-
-- Playlist - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
-- Steps
-  - 0 - Overview - Installation Java, Eclipse and Maven
-  - 1 - Installing Java JDK
-  - 2 - Installing Eclipse IDE
-  - 3 - Using Embedded Maven in Eclipse
-  - 4 - Troubleshooting Java, Eclipse and Maven
-
 #### Troubleshooting Installations
 
 - Node JS and NPM 
@@ -74,21 +60,7 @@ TODO : ADD COURSE IMAGE
 - Visual Studio Code
   - https://code.visualstudio.com/docs/supporting/errors
   - https://code.visualstudio.com/docs/supporting/FAQ
-- Eclipse and Embedded Maven
-  - PDF : https://github.com/in28minutes/SpringIn28Minutes/blob/master/InstallationGuide-JavaEclipseAndMaven_v2.pdf
-  - GIT Repository For Installation : https://github.com/in28minutes/getting-started-in-5-steps
 
-## Running Examples
-- Download the zip or clone the Git repository.
-- Unzip the zip file (if you downloaded one)
-- Open Command Prompt and Change directory (cd) to folder containing pom.xml
-- Open Eclipse 
-   - File -> Import -> Existing Maven Project -> Navigate to the folder where you unzipped the zip
-   - Select the right project
-- Choose the Spring Boot Application file (search for file with @SpringBootApplication)
-- Right Click on the file and Run as Java Application
-- You are all Set
-- For help : use our installation guide - https://www.youtube.com/playlist?list=PLBBog2r6uMCSmMVTW_QmDLyASBvovyAO3
 
 ## What you'll learn
 - You will learn to Topic No 1

@@ -49,9 +49,12 @@
 				<script type="text/template">
 
 <!-- .slide: class="center" -->
-# SERVERLESS
-# AWS Lambda &
-# Azure Functions
+# Go Serverless
+# with AWS & Azure
+
+---
+## Review
+![](./images/aws/05-serverless-course/aws-serverless-full-stack.png)
 
 ---
 <!-- .slide: class="center" -->
@@ -96,14 +99,10 @@
 - Reliable, secure and cost-effective
 
 ---
-<!-- .slide: class="center" -->
-# Serverless Fundamentals - Lambda and API Gateway
-
----
 ## Serverless
 ![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/lambdafunction.png) 
 ![](./images/aws/00-icons/apigateway.png) 
+![](./images/aws/00-icons/dynamodb.png) 
 - What are the things we think about when we develop an application?
 	- Where do we deploy the application?
 	- What kind of server? What OS?
@@ -127,54 +126,28 @@
 ## AWS Lambda
 ![](./images/aws/00-icons/lambda.png) 
 ![](./images/aws/00-icons/lambdafunction.png) 
-- World before Lambda - ELB with EC2 Servers!
-- You don't worry about servers or scaling or availability
-- You only worry about your code
-- You pay for what you use 
+- Write and Scale Your Business Logic
+	- Write your business logic in Node.js (JavaScript), Java, Python, Go,  C# and more..
+	- Don't worry about servers or scaling or availability (only worry about your code)
+- Pay for Use
 	- Number of requests
 	- Duration of requests
 	- Memory consumed
 
 ---
-## AWS Lambda - Supported Languages
-- Java
-- Go 
-- PowerShell
-- Node.js
-- C# 
-- Python, 
-- Ruby
-- and a lot more...
-
----
-## AWS Lambda Event Sources
-- Amazon API Gateway
-- AWS Cognito
-- Amazon DynamoDB (event)
-- Amazon CloudFront (Lambda@Edge)
-- AWS Step Functions 
-- Amazon Kinesis (event)
-- Amazon Simple Storage Service
-- Amazon Simple Queue Service (event)
-- Amazon Simple Notification Service
-- The list is endless...
-
----
-## AWS Lambda Demo
-- Let's get our hands dirty!
-
----
-## AWS Lambda Function
-- Stateless - store data to Amazon S3 or Amazon DynamoDB
-- 500MB of non-persistent disk space (/tmp directory)
-- Allocate memory in 64MB increments from 128MB to 3GB
-	- Lambda cost increases with memory
-	- CPU Power increases with memory allocated
-	- Inexpensive - https://aws.amazon.com/lambda/pricing/
-		- Free tier - 1M free requests per month
-- Monitor function executions through Amazon CloudWatch
-- Maximum allowed time for lambda execution is 900 seconds (default - 3 seconds)
-- Integrates with AWS X-Ray(tracing), AWS CloudWatch (monitoring and logs)
+## Lambda Function Concurrency
+<!-- .slide: class="image-right image-ten" -->
+![](./images/aws/00-icons/lambda.png) 
+- **Function concurrency** - no of instances serving requests (at a given time)
+- You invoke a lambda function for the first time:
+	- AWS Lambda creates an instance of the function
+	- AWS Lambda runs the function's handler method and returns  the response
+	- (However) The function instance stays active and waits to process new events
+- You invoke the lambda fn again (while first event is in progress):
+	- AWS Lambda creates another instance of the function
+- When no of requests decreases, Lambda stops unused instances
+- (However) There are limits to concurrency of lambda function (DEMO)
+- Provisioned concurrency can help to avoid fluctuations in latency (DEMO)
 
 ---
 ## REST API Challenges
@@ -211,65 +184,115 @@
 ![](./images/aws/00-icons/lambdafunction.png) 
 
 - **"publish, maintain, monitor, and secure APIs at any scale"**
-- Integrates with AWS Lambda, Amazon EC2, Amazon ECS or any web application
+- Integrates with AWS Lambda or any web application
 - Supports HTTP(S) and WebSockets (two way communication - chat apps and streaming dashboards)
 - Serverless. **Pay for use** (API calls and connection duration)
-- Demo!
 
 ---
-## Amazon API Gateway - Remember
+## API Gateway - API Types
+<!-- .slide: class="one30 image-right image-twenty" -->
+![](./images/aws/00-icons/apigateway.png) 
+- **REST API** 
+	- feature-rich RESTful API
+- **HTTP API**
+	- Also used to build RESTful API
+	- Newer approach
+- **WebSocket API**
+	- Persistent connections with clients 
+	- Allows full-duplex communication
+- Names are little confusing
 
-![](./images/aws/00-icons/user.png)
-![](./images/arrow.png) 
-![](./images/aws/00-icons/apigateway.png)
+---
+## API Gateway RESTful API approaches
+<!-- .slide: class="ninety" -->
+
+![](./images/aws/00-icons/apigateway.png) 
 ![](./images/arrow.png) 
 ![](./images/aws/00-icons/lambdafunction.png) 
 
-- API Lifecycle Management for RESTful APIs and WebSocket APIs
-- Run multiple versions of the same API
-- Rate Limits(request quota limits), throttling and fine-grained access permissions using API Keys for Third-Party Developers
-- Authorization integration with:
-	- AWS IAM (for AWS users using signature version 4)
-	- Amazon Cognito
-	- Lambda authorizer (custom authorization with JWT tokens or SAML)
+##### REST API
+- Fully Featured (API caching, Request/Response Validations, Test invocations)
+- Custom Request/Response Transformations
+- Better Integration with AWS Services (AWS X-Ray, AWS WAF etc)
 
-
-
----
-## Amazon API Gateway Features
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/apigateway.png) 
-
-- Lifecycle management for REST APIs 
-- Versioning and multiple environments
-- API keys - Generate API keys to monitor usage
-	- Implement plans and quota limits for external applications (or developer)
-	- WARNING - Do NOT use API keys for Authorization
-- Enable caching for API calls with TTL
-- Protect backends by throttling requests
-- Integrates with 
-	- Amazon CloudWatch - Performance metrics, API calls, latency data and error rates
-	- Amazon CloudWatch Logs - Debug logging
-	- AWS CloudTrail - Complete history of changes to your REST API
-
-	---
-## Amazon API Gateway - Authentication and Authorization
-![](./images/aws/03-serverless/04-Request-With-SecurityToken.png)
-- How do you authenticate a REST API call?
-	- Attach a signature or token with your API call
+##### HTTP API
+- Newer, Simpler, Cheaper and Low Latency
+- Automatic Deployments
 
 ---
-## Amazon API Gateway - Authentication and Authorization Approaches
+## REST API Gateway - Custom Integration (Default)
+<!-- .slide: class="image-right image-fifty" -->
+![](./images/aws/05-serverless-course/api-gateway-custom-integration.png)
+- Integrations define request/response transformation to/from lambda
+- The default is Custom Integration
+- Request can be transformed by configuring Mapping Template in Integration Request
+- Response can be transformed by configuring Mapping Template in Integration Request
 
-- AWS Signature Version 4
-	- Create a signature using your AWS secret access key and send it with your API request
-	- For API consumers belonging to your AWS account
-- Lambda authorizers
-	- Implement a Lambda function to authenticate (JWT, OAuth etc) the token and return IAM policies. 
-	- Integrate with any custom user directory
-- Amazon Cognito
-	- We will look at authentication with Cognito next
+---
+## REST API Gateway - Proxy Integration
+![](./images/aws/05-serverless-course/api-gateway-proxy-integration.png)
+- How about defining a standard transformation?
 
+---
+## REST API Gateway - Proxy Integration - Request
+
+##### Request to API Gateway
+```
+//Headers: header1:header-value
+//queryString: ?queryparam=queryparamvalue
+{
+	"message": "Welcome"
+}
+```
+
+##### Standard event sent to Lambda Function
+```
+{
+	resource: '/todos',
+	path: '/todos',
+	httpMethod: 'POST',
+	headers: {"header1":"header-value"},
+	multiValueHeaders: {"header1":["header-value"]},
+	queryStringParameters: {"queryparam":"queryparamvalue"},
+	multiValueQueryStringParameters: {"queryparam":["queryparamvalue"]},
+	pathParameters: null,
+	stageVariables: null,
+	requestContext: {},
+	body: '{\n  "message" : "Welcome"\n}',
+	isBase64Encoded: false
+}
+```
+---
+## REST API Gateway Proxy Integration - Response
+
+##### Response from Lambda Function
+```
+{
+    statusCode: 200,                     // a valid HTTP status code
+    headers: { 
+        custom-header: "xyz"             // any API-specific custom header
+    },
+    body: "{\"message\": \"Welcome\"}"   // a JSON string.
+}
+```
+
+##### Response from API Gateway
+![](./images/aws/05-serverless-course/api-gateway-proxy-integration-response.png)
+
+---
+## HTTP API - API Gateway
+
+- Payload format version 1.0
+	- Request and Response structure almost same as REST API - Proxy Integration
+	- Use it if you want to migrate from REST API to HTTP API as is.
+- Payload format version 2.0
+	- Recommended for new applications
+	- Request Event Structure
+		- Is pretty much the same as 1.0 (Minor changes like cookie support)
+	- Lambda function response
+		- API Gateway can infer the response format for you
+		- You can either use the standard response structure (with `statusCode`,`body`, `headers`) or 
+		- Just return a valid response JSON  `return {"message": "Welcome"}`
 ---
 ## Amazon Cognito
 <!-- .slide: class="image-right image-twenty" -->
@@ -279,7 +302,6 @@
 - Do you want security features such as multi-factor authentication (MFA), phone and email verification?
 - Want to create your own user database without worrying about scaling or operations?
 - Let's go : Amazon Cognito
-- Support for SAML
 
 ---
 ## Amazon Cognito - User Pools
@@ -303,22 +325,6 @@
 - Federated Identity 
 	- An external authentication (identity) provider
 	- ex: Amazon, Apple, Facebook, OpenID or SAML identity providers
-	
----
-## Amazon Cognito - How does it work?
-<!-- .slide: class="image-right image-fifty" -->
-![](./images/aws/03-serverless/05-cognito.png)
-- Application sends user credentials to identity provider
-	- (If authenticated) Identity provider sends a token to application
-- Application sends the token to Identity Pool
-	- (If valid token) Identity Pool creates temporary credentials (access key, secret key, and session token) using STS
-- App sends a request with the credentials to the AWS service
-
-
-
----
-<!-- .slide: class="center" -->
-# Amazon S3 Fundamentals
 
 ---
 ## Amazon S3 (Simple Storage Service)
@@ -370,118 +376,6 @@
 - Can grant **cross account** and **public** access	
 
 ---
-## Availability and Durability
-- **Availability**
-	- Will I be able to access my data now and when I need it?
-	- Percentage of time an application provides the operations expected of it
-- **Durability**
-	- Will my data be available after 10 or 100 or 1000 years?
-- Examples of measuring availability and durability:
-	- 4 9's - 99.99
-	- 11 9's - 99.999999999
-- Typically, an **availability of four 9's** is considered very good
-- Typically, a **durability of eleven 9's** is considered very good
-
----
-## Availability
-| Availability | Downtime (in a month)  | Comment |
-|--|--|--|
-| 99.95% | 22 minutes||
-| 99.99% (4 9's)| 4 and 1/2 minutes | Typically online apps aim for 99.99% (4 9's) availability|
-| 99.999% (5 9's) | 26 seconds| Achieving 5 9's availability is tough|
-
----
-## Durability
-<!-- .slide: class="image-right image-fifty" -->
-![](./images/aws/rds/4-standby-database.png)
-
-- What does a **durability of 11 9's** mean? 
-	- If you **store one million files for ten million years**, you would expect to **lose one file**
-- Why should durability be high?
-	- Because **we hate losing data**
-	- Once we lose data, it is gone
-
----
-## Relational Databases
-<!-- .slide: class="image-right image-fifty" -->
-![Database](./images/aws/relational-schema.png)
-- This was the **only option** until a decade back!
-- Most **popular (or unpopular)** type of databases
-- **Predefined schema** with tables and relationships
-- Very **strong transactional** capabilities
-- Used for 
-	- OLTP (Online Transaction Processing) use cases and
-	- OLAP (Online Analytics Processing) use cases
-
----
-## Relational Database - OLTP (Online Transaction Processing)
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/rds.png) 
-- Applications where **large number of users make large number of small transactions** 
-	- small data reads, updates and deletes
-- **Use cases**:
-	- Most traditional applications, ERP, CRM, e-commerce, banking applications
-- **Popular databases**:
-	- MySQL, Oracle, SQL Server etc
-- Recommended AWS Managed Service: 
-	- **Amazon RDS**
-	- Supports Amazon Aurora, PostgreSQL, MySQL, MariaDB (Enhanced MySQL), Oracle Database, and SQL Server
-
----
-## Relational Database - OLAP (Online Analytics Processing)
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/redshift.png) 
-- Applications allowing users to **analyze petabytes of data**
-	- **Examples** : Reporting applications, Data ware houses, Business intelligence applications, Analytics systems
-	- **Sample application** : Decide insurance premiums analyzing data from last hundred years
-	- Data is consolidated from multiple (transactional) databases
-- Recommended AWS Managed Service 
-	- **Amazon Redshift**
-	- **Petabyte-scale** distributed data ware house based on PostgreSQL
-
----
-## Relational Databases - OLAP vs OLTP
-<!-- .slide: class="image-right image-forty" -->
-![Database](./images/aws/database-columnar-storage.png)
-![Database](./images/aws/database-columnar-storage-2.png)
-
-- OLAP and OLTP use **similar data structures**
-- BUT **very different approach in how data is stored**
-- **OLTP databases** use row storage 
-	- Each table row is stored together
-	- Efficient for processing small transactions
-- **OLAP databases** use columnar storage
-	- Each table column is stored together
-	- **High compression** - store petabytes of data efficiently
-	- **Distribute data** - one table in multiple cluster nodes 
-	- **Execute single query across multiple nodes** - Complex queries can be executed efficiently
-
----
-## Document Database
-<!-- .slide: class="image-right image-thirty" -->
-![](./images/aws/database-document.png)
-![](./images/aws/document-database-example.png)
-
-- Structure data **the way your application needs it**
-- Create **one table instead of dozens**!
-- **Quickly evolving** semi structured data (**schema-less**)
-- **Use cases** : Content management, catalogs, user profiles
-- **Advantages** : (Horizontally) Scalable to **terabytes of data** with **millisecond responses** upto **millions of transactions per second**
-- Recommended AWS Managed Service 
-	- **Amazon DynamoDB**
-
-
----
-## Key-value
-![Database](./images/aws/database-key-value.png)
-![Database](./images/aws/database-session-store.png)
-- Use a **simple key-value pair** to store data. Key is a unique identifier.
-- Values can be objects, compound objects or simple data values
-- **Advantages** : (Horizontally) Scalable to **terabytes of data** with **millisecond responses** upto **millions of transactions per second**
-- Recommended AWS Managed Service - **Amazon DynamoDB** again
-- **Use cases** : shopping carts, session stores, gaming applications and very high traffic web apps
-
----
 ## Amazon DynamoDB 
 <!-- .slide: class="image-right image-twenty" -->
 ![](./images/aws/00-icons/dynamodb.png) 
@@ -509,192 +403,6 @@
 	- Each item in a table can have distinct attributes
 - Max 400 KB per item in table
 	- Use S3 for large objects and DynamoDB for smaller objects
-
----
-## DynamoDB - Keys
-
-<!-- .slide: class="image-right image-forty" -->
-![](./images/aws/rds-diagrams/xx-rds-dynamodb-partition.png)
-
-- Two parts:
-	- (Mandatory) Partition key
-	- (Optional) Sort key
-- Primary key should be unique
-- Partition key decides the partition (input to hash function)
-- Same partition key items stored together (sorted by sort key)
-
----
-## DynamoDB - Indexes
-<!-- .slide: class="image-right image-forty" -->
-![](./images/aws/rds-diagrams/xx-rds-dynamodb-partition.png)
-- (Optional) Secondary indexes to query on keys other than primary key
-- Local secondary index 
-	- Same partition key as primary key but different sort key
-	- Should be created at the table creation
-- Global secondary index 
-	- Partition and sort key different from primary key
-	- Can be added and removed at any point in time
-	- Stored separately from the original table
----
-## DynamoDB Query vs Scan
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/dynamodb.png) 
-
-- Query 
-	- Search using a partition key attribute and a distinct value to search
-	- Optional - sort key and filters
-	- Results are sorted by primary key
-	- Max 1 MB
-- Scan 
-	- Reads every item in a table
-	- Expensive compared to query
-	- Returns all attributes by default
-	- Supports paging above 1 MB
-	- Filter items using expressions
-
----
-## DynamoDB Consistency Levels
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/dynamodb.png) 
-
-- By default, eventually consistent (lag of about a second)
-- Request for strongly consistent reads 
-	- Set `ConsistentRead` to true
-	- Slow and more expensive
-- Supports transactions
-	- All-or-nothing changes to multiple items both within and across tables
-	- Twice the cost
-
-
----
-## DynamoDB Read/Write Capacity Modes
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/dynamodb.png) 
-
-- Provisioned 
-	- Provision read and write capacity 
-	- Dynamically adjustable
-	- Unused capacity can be used in bursts
-	- You are billed for the provisioned capacity irrespective of whether you make use of it or not
-- On Demand
-	- Truly serverless and expensive
-	- For unknown workloads or traffic with huge spikes
-	- Use On Demand only when your  
-		- Workloads are really spiky causing low utilization of Provisioned Capacity OR
-		- Usage is very low (for example, in test environments) making manual adjustments expensive
-
----
-## DynamoDB Read/Write Capacity Used
-
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/dynamodb.png) 
-- Capacity used depends on size of item, read consistency, transactions etc
-- 1 capacity unit to read 4 KB or smaller (more for bigger items)
-- 1 capacity unit to write 1 KB or smaller (more for bigger items)
-- Twice the capacity for a strongly consistent or transactional requests
-- On-demand RCU is almost 8 times the cost of Provisioned RCU
-- Example: $0.2500 per million vs $0.0361 per million
-
-Note:
-- RCU vs WCU (RCU is cheaper than WCU. So, it is cheaper for read workloads.)
-
----
-## DynamoDB - Operations
-
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/dynamodb.png) 
-
-- Performance Monitoring - CloudWatch
-- Alerts on RCU, WCU and Throttle Requests - CloudWatch Alarms
-- Migrate data from RDS or MongoDB to DynamoDB - AWS Database Migration Service
-- (Feature) Enable point-in-time recovery (max 35 days)
-- Use Time to Live (TTL) to automatically expire items
-
----
-## DynamoDB - IAM and Encryption
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/dynamodb.png) 
-- Server-side encryption in integration with keys from KMS
-	- Always enabled
-	- Automatically encrypts tables, DynamoDB streams, and backups
-- Client-side encryption with DynamoDB Encryption Client
-	- You can manage your keys with KMS or CloudHSM
-- Use IAM roles to provide EC2 instances or AWS services access to DynamoDB tables
-	- Predefined policies available for DynamoDB
-		- AmazonDynamoDBReadOnlyAccess
-		- AmazonDynamoDBFullAccess etc
-	- Fine-grained control at the individual item level
-
----
-##  DynamoDB vs RDS
-
-|Feature  | DynamoDB  | RDS|
-|--|:--|:--|
-| Scenario   |  Millisecond latency with millions of TPS    | Stronger consistency (schema) and transactional capabilities|
-| Schema| Schemaless (needs only a primary key - Great for use cases where your schema is evolving)| Well-defined schema with relationships|
-|Data Access|Using REST API provided by AWS using AWS SDKs or AWS Management Console or AWS CLI|SQL queries|
-|Complex Data Queries Involving Multiple Tables|Difficult to run| Run complex relational queries with multiple entities|
-|Scaling| No upper limits| 64 TB |
-|Consistency| Typically lower consistency | Typically higher consistency|
-
----
-<!-- .slide: class="center" -->
-# Decoupling Applications <BR/>with SQS, SNS and MQ
-
----
-## Need for Asynchronous Communication
-- Why do we need asynchronous communication?
-
----
-## Synchronous Communication
-![](./images/aws/02-Queuing/0-SQS-00.png)
-- Applications on your web server make synchronous calls to the logging service
-- What if your logging service goes down?
-	- Will you applications go down too?
-- What if all of sudden, there is high load and there are lot of logs coming in?
-	- Log Service is not able to handle the load and goes down very often
-
----
-## Asynchronous Communication - Decoupled
-![](./images/aws/02-Queuing/0-SQS-01.png)
-- Create a queue or a topic
-- Your applications put the logs on the queue
-- They would be picked up when the logging service is ready
-- Good example of decoupling!
-
----
-## Asynchronous Communication - Scale up
-![](./images/aws/02-Queuing/0-SQS-02.png)
-- You can have multiple logging service instances reading from the queue!
-
----
-## Asynchronous Communication - Pull Model - SQS
-<!-- .slide: class="image-right image-fifty" -->
-![](./images/aws/02-Queuing/2-sqs.png)
-- Producers put messages on the queue
-- Consumers poll on the queue
-	- Only one of the consumers will successfully process a given message
-- Scalability
-	- Scale consumer instances under high load
-- Availability
-	- Producer up even if a consumer is down
-- Reliability
-	- Work is not lost due to insufficient resources
-- Decoupling
-	- Make changes to consumers without effect on producers worrying about them
-
----
-## Asynchronous Communication - Push Model - SNS
-<!-- .slide: class="image-right image-fifty" -->
-![](./images/aws/02-Queuing/3-SNS.png)
-
-- Subscribers subscribe to a topic
-- Producers send notifications to a topic
-	- Notification sent out to all subscribers
-- Decoupling
-	- Producers don't care about who is listening
-- Availability
-	- Producer up even if a subscriber is down
 
 ---
 
@@ -742,68 +450,6 @@ Note:
 	- Message is removed from the queue
 
 ---
-## Simple Queuing Service Lifecycle of a message
-![](./images/aws/02-Queuing/4-Queuing-LifeCycle.png)
-
-Note:
-- When a message is sent to queue, it is redundantly distributed among SQS servers
-
----
-## SQS - Auto Scaling
-
-![](./images/aws/00-icons/sqs.png)
-![](./images/arrow.png)
-![](./images/aws/00-icons/cloudwatchalarm.png)
-![](./images/arrow.png)
-![](./images/aws/00-icons/autoscaling.png)
-![](./images/arrow.png)
-![](./images/aws/00-icons/ec2instances.png)
-
-- Use target tracking scaling policy 
-- Use a SQS metric like ApproximateNumberOfMessages
-
----
-## SQS Queue - Important configuration
- 
-| Configuration | Description  | 
-|--|:--|
-|Visibility timeout| Other consumers will not receive a message being processed for the configured time period (default - 30 seconds, min - 0, max - 12 hours)  <BR/> Consumer processing a message can call ChangeMessageVisibility to increase visibility timeout of a message (before visibility timeout)|
-| DelaySeconds   | Time period before a new message is visible on the queue <BR/>Delay Queue = Create Queue + Delay Seconds <BR/>default - 0, max - 15 minutes<BR/>Can be set at Queue creation or updated using SetQueueAttributes<BR/>Use message timers to configure a message specific DelaySeconds value      |
-| Message retention period | Maximum period a message can be on the queue <BR/>Default - 4 days, Min - 60 seconds, Max - 14 days|
-| MaxReceiveCount | Maximum number of failures in processing a message|
-
----
-## Simple Queuing Service Security
-![](./images/aws/00-icons/sqs.png)
-![](./images/arrowbi.png)
-![](./images/aws/00-icons/iam.png)
-
-- You can provide access to other AWS resources to access SQS using IAM roles (EC2 -> SQS)
-- By default only the queue owner is allowed to use the queue
-	- Configure SQS Queue Access Policy to provide access to other AWS accounts
-
----
-## SQS - Scenarios
-<!-- .slide: class="tdfragment" -->
-
-|Scenario | Result |
-|--|:--|
-|Consumer takes more than visibility timeout to process the message | Message is visible on queue after visibility timeout and another consumer might receive the message|
-|Consumer calls ChangeMessageVisibility before visibility timeout | Visibility timeout is extended to requested time|
-|DelaySeconds is configured on the queue| Message is delayed for DelaySeconds before it is available|
-|Receiver wants to decide how to handle the message without looking at message body | Configure Message Attributes|
----
-## SQS - Scenarios
-<!-- .slide: class="tdfragment" -->
-
-|Scenario | Result |
-|--|:--|
-|How to reduce number of API calls to SQS?|Use Long Polling - When looking for messages, you can specify a WaitTimeSeconds upto 20 seconds|
-|Your receive messages and start processing them after a week. You see that some messages are not processed at all!| Exceeded message retention period. Default message retention period is 4 days. Max 14 days.|
-|Give high priority to premium customers| Create separate queues for free and premium customers|
-
-
----
 ## Amazon Simple Notification Service(SNS)
 <!-- .slide: class="image-right image-forty" -->
 ![](./images/aws/02-Queuing/3-SNS.png)
@@ -831,333 +477,40 @@ Note:
 ## Serverless Application Model
 - 1000s of Lambda functions to manage, versioning, deployment etc 
 - Serverless projects can become a maintenance headache
-- How to test serverless projects with Lambda, API Gateway and DynamoDB in your local?
 - How to ensure that your serverless projects are adhering to best practices?
-	- Tracing (X-Ray), CI/CD(CodeBuild, CodeDeploy, CodePipeline) etc
+	- Tracing (X-Ray) etc
 - Welcome SAM - Serverless Application Model
 	- Open source framework for building serverless applications
 	- Define a YAML with all the serverless resources you want:
 		- Functions, APIs, Databases etc
 	- BEHIND THE SCENES : Your configuration is used to create a AWS CloudFormation syntax to deploy your application
----
-<!-- .slide: class="center" -->
-# Architecture and Best Practices
 
 ---
-## Well Architected Framework
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/aws.png) 
-- Helps cloud architects build application infrastructure which is:
-	- Secure
-	- High-performing
-	- Resilient and
-	- Efficient
-- Five Pillars
-	- Operational Excellence
-	- Security
-	- Reliability
-	- Performance Efficiency
-	- Cost Optimization
+## Serverless Application Model - References
+|Reference|Link|
+|:--|--|
+|Developer Guide|https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html|
+|AWS SAM Reference|https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/serverless-sam-reference.html|
+|AWS SAM Resource and Property Reference|https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-specification-resources-and-properties.html|
 
 ---
-## Operational Excellence
-![](./images/aws/00-icons/lambda.png)
-![](./images/aws/00-icons/cloudformation.png)
-![](./images/aws/00-icons/codepipeline.png) 
-![](./images/aws/00-icons/config.png) 
-![](./images/aws/00-icons/cloudwatch.png) 
-
-- Avoid/Minimize effort and problems with
-	- Provisioning servers
-	- Deployment
-	- Monitoring
-	- Support
+## Serverless Framework
+- 1000s of Lambda functions to manage, versioning, deployment etc 
+- Serverless projects can become a maintenance headache
+- Welcome Serverless Framework
+	- Zero-friction serverless development
+	- Easy YAML + CLI development 
+	- Easy deployment to AWS, Azure, Google Cloud, etc
+	- You can use a hosted dashboard (instead of CLI)
 
 ---
-## Operational Excellence - Solutions and AWS services
-
-<!-- .slide: class="image-right image-ten" --> 
-![](./images/aws/00-icons/lambda.png)
-![](./images/aws/00-icons/cloudformation.png)
-![](./images/aws/00-icons/codepipeline.png) 
-![](./images/aws/00-icons/codebuild.png)
-![](./images/aws/00-icons/codedeploy.png)
-
-- Use Managed Services
-	- You do not need to worry about managing servers, availability, durability etc
-- Go serverless
-	- Prefer Lambda to EC2!
-- Automate with Cloud Formation 
-	- Use Infrastructure As Code
-- Implement CI/CD to find problems early
-	- CodePipeline
-	- CodeBuild
-	- CodeDeploy
-- Perform frequent, small reversible changes
-
----
-## Operational Excellence - Solutions and AWS services
-<!-- .slide: class="image-right image-ten" --> 
-![](./images/aws/00-icons/config.png) 
-![](./images/aws/00-icons/cloudwatch.png)
-![](./images/aws/00-icons/cloudtrail.png)
-![](./images/aws/00-icons/xray.png)
-![](./images/aws/00-icons/es.png)
-
-- Prepare: for failure 
-	- Game days 
-	- Disaster recovery exercises
-	- Implement standards with AWS Config rules 
-- Operate: Gather Data and Metrics
-	- CloudWatch (Logs agent), Config, Config Rules, CloudTrail, VPC Flow Logs and X-Ray (tracing)
-- Evolve: Get intelligence
-	- Use Amazon Elasticsearch to analyze your logs
-
----
-## Security Pillar
-![](./images/aws/00-icons/iam.png) 
-![](./images/aws/00-icons/shield.png) 
-![](./images/aws/00-icons/waf.png) 
-![](./images/aws/00-icons/kms.png) 
-![](./images/aws/00-icons/cloudhsm.png) 
-
-- Principle of least privilege for least time
-- Security in Depth - Apply security in all layers
-- Protect Data in Transit and at rest
-- Actively monitor for security issues
-- Centralize security policies for multiple AWS accounts
-
----
-## Security Pillar - Principle of least privilege for least time
-![](./images/aws/00-icons/iam.png)
-- Use temporary credentials when possible (IAM roles, Instance profiles)
-- Use IAM Groups to simplify IAM management
-- Enforce strong password practices
-- Enforce MFA
-- Rotate credentials regularly
-
----
-## Security Pillar - Security in Depth 
-
-<!-- .slide: class="image-right image-ten" -->
-![](./images/aws/00-icons/vpc.png) 
-![](./images/aws/00-icons/ami.png) 
-![](./images/aws/00-icons/shield.png) 
-![](./images/aws/00-icons/waf.png) 
-![](./images/aws/00-icons/cloudformation.png) 
-
-- VPCs and Private Subnets
-	- Security Groups
-	- Network Access Control List (NACL)
-- Use hardened EC2 AMIs (golden image)
-	- Automate patches for OS, Software etc
-- Use CloudFront with AWS Shield for DDoS mitigation
-- Use WAF with CloudFront and ALB 
-	- Protect web applications from CSS, SQL injection etc
-- Use CloudFormation
-	 - Automate provisioning infrastructure that adheres to security policies
-
----
-## Security Pillar - Protecting Data at Rest
-<!-- .slide: class="image-right image-twenty" -->
-![](./images/aws/00-icons/kms.png) 
-![](./images/aws/00-icons/cloudhsm.png)
-- Enable Versioning (when available)
-- Enable encryption - KMS and Cloud HSM
-	- Rotate encryption keys
-- Amazon S3
-	- SSE-C, SSE-S3, SSE-KMS
-- Amazon DynamoDB
-	- Encryption Client, SSE-KMS
-- Amazon Redshift
-	- AWS KMS and AWS CloudHSM
-- Amazon EBS, Amazon SQS and Amazon SNS
-	- AWS KMS
-- Amazon RDS
-	- AWS KMS, TDE
-
----
-## Security Pillar - Protecting Data in Transit 
-![](./images/aws/00-icons/certificatemanager.png)
-- Data coming in and going out of AWS
-- By default, all AWS API use HTTPS/SSL
-- You can also choose to perform client side encryption for additional security
-- Ensure that your data goes through AWS network as much as possible
-	- VPC Endpoints and AWS PrivateLink
-
-
----
-## Security Pillar - Detect Threats
-![](./images/aws/00-icons/cloudwatch.png)
-![](./images/aws/00-icons/organizations.png)
-- Actively monitor for security issues:
-	- Monitor CloudWatch Logs
-	- Use Amazon GuardDuty to detect threats and continuously monitor for malicious behavior
-- Use AWS Organization to centralize security policies for multiple AWS accounts
-
----
-## Reliability
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/sqs.png) 
-![](./images/aws/00-icons/sns.png) 
-![](./images/aws/00-icons/apigateway.png) 
-![](./images/aws/00-icons/autoscaling.png)
-- Ability to
-	- Recover from infrastructure and application issues
-	- Adapt to changing demands in load
-
----
-## Reliability - Best Practices
-![](./images/aws/00-icons/autoscaling.png)
-![](./images/aws/00-icons/cloudwatchalarm.png)
-![](./images/aws/00-icons/cloudwatch.png)
-- Automate recovery from failure
-	- Health checks and Auto scaling
-	- Managed services like RDS can automatically switch to standby
-- Scale horizontally
-	- Reduces impact of single failure
-- Maintain Redundancy
-	- Multiple Direct Connect connections
-	- Multiple Regions and Availability Zones
-
----
-## Reliability - Best Practices
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/sqs.png) 
-![](./images/aws/00-icons/sns.png) 
-![](./images/aws/00-icons/apigateway.png) 
-
-- Prefer serverless architectures
-- Prefer loosely coupled architectures
-	- SQS, SNS
-- Distributed System Best Practices
-	- Use Amazon API Gateway for throttling requests
-	- AWS SDK provides retry with exponential backoff
-
----
-## Loosely coupled architectures
-<!-- .slide: class="image-right image-ten" -->
-![](./images/aws/00-icons/elb.png) 
-![](./images/aws/00-icons/sns.png) 
-![](./images/aws/00-icons/sqs.png) 
-![](./images/aws/00-icons/kinesis.png) 
-
-- ELB
-	- Works in tandem with AWS auto scaling
-- Amazon SQS
-	- Polling mechanism
-- Amazon SNS
-	- Publish subscribe pattern
-	- Bulk notifications and Mobile push support
-- Amazon Kinesis
-	- Handle event streams
-	- Multiple clients
-	- Each client can track their stream position
-
----
-## Troubleshooting on AWS - Quick Review
- 
-| Option | Details  | When to Use |
-|--|:--|:--|
-|Amazon S3 Server Access Logs | S3 data request details - request type, the resources requested, and the date and time of request      |  Troubleshoot bucket access issues and data requests       |
-|Amazon ELB Access Logs|Client's IP address, latencies, and server responses|Analyze traffic patterns and troubleshoot network issues|
-|Amazon VPC Flow Logs|Monitor network traffic|Troubleshoot network connectivity and security issues|
-
----
-## Troubleshooting on AWS - Quick Review
-| Option | Details  | When to Use |
-|--|:--|:--|
-|Amazon CloudWatch | Monitor metrics from AWS resources | Monitoring|
-|Amazon CloudWatch Logs|Store and Analyze log data from Amazon EC2 instances and on-premises servers | Debugging application issues and Monitoring|
-|AWS Config|AWS resource inventory. History. Rules.|Inventory and History|
-|Amazon CloudTrail|History of AWS API calls made via AWS Management Console, AWS CLI, AWS SDKs etc.|Auditing and troubleshooting. Determine who did what, when, and from where.|
-
----
-## Performance Efficiency
-- Meet needs with minimum resources (efficiency)
-- Continue being efficient as demand and technology evolves
-
----
-## Performance Efficiency - Best Practices
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/apigateway.png)
-![](./images/aws/00-icons/cloudwatch.png) 
-![](./images/aws/00-icons/sqs.png) 
-
-- Use Managed Services
-	- Focus on your business instead of focusing on resource provisioning and management
-- Go Serverless
-	- Lower transactional costs and less operational burden
-- Experiment
-	- Cloud makes it easy to experiment
-- Monitor Performance
-	- Trigger CloudWatch alarms and perform actions through Amazon SQS and Lambda
-
----
-## Performance Efficiency - Choose the right solution
-<!-- .slide: class="image-right image-ten" -->
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/s3.png) 
-![](./images/aws/00-icons/dynamodb.png) 
-![](./images/aws/00-icons/elasticache.png) 
-![](./images/aws/00-icons/cloudfront.png) 
-
-- Compute
-	- EC2 instances vs Lambda vs Containers
-- Storage
-	- Block, File, Object
-- Database
-	- RDS vs DynamoDB vs RedShift ..
-- Caching
-	- ElastiCache vs CloudFront vs DAX vs Read Replicas
-- Network
-	- CloudFront, Global Accelerator, Route 53, Placement Groups, VPC endpoints, Direct Connect 
-- Use product specific features 
-	- Enhanced Networking, S3 Transfer Acceleration, EBS optimized instances
-
-
----
-## Cost Optimization
-<!-- .slide: class="image-right image-ten" -->
-![](./images/aws/00-icons/autoscaling.png) 
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/trustedadvisor.png) 
-![](./images/aws/00-icons/cloudwatch.png) 
-![](./images/aws/00-icons/cloudfront.png) 
-- Run systems at lowest cost
-
-
----
-## Cost Optimization - Best Practices
-<!-- .slide: class="image-right image-ten" -->
-![](./images/aws/00-icons/autoscaling.png) 
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/trustedadvisor.png) 
-![](./images/aws/00-icons/cloudwatch.png) 
-![](./images/aws/00-icons/cloudfront.png) 
-- Match supply and demand
-	- Implement Auto Scaling
-	- Stop Dev/Test resources when you don't need them
-	- Go Serverless
-- Track your expenditure
-	- Cost Explorer to track and analyze your spend
-	- AWS Budgets to trigger alerts
-	- Use tags on resources
-
----
-## Cost Optimization - Choose Cost-Effective Solutions
-<!-- .slide: class="image-right image-ten" -->
-![](./images/aws/00-icons/autoscaling.png) 
-![](./images/aws/00-icons/lambda.png) 
-![](./images/aws/00-icons/trustedadvisor.png) 
-![](./images/aws/00-icons/cloudwatch.png) 
-![](./images/aws/00-icons/cloudfront.png) 
-- Right-Sizing : Analyze 5 large servers vs 10 small servers
-	- Use CloudWatch (monitoring) and Trusted Advisor (recommendations) to right size your resources
-- Email server vs Managed email service (charged per email)
-- On-Demand vs Reserved vs Spot instances
-- Avoid expensive software : MySQL vs Aurora vs Oracle
-- Optimize data transfer costs using AWS Direct Connect and Amazon CloudFront
+## Serverless Framework References
+|Reference|Link|
+|:--|--|
+|Documentation|https://www.serverless.com/framework/docs/|
+|Workflow Tips|https://www.serverless.com/framework/docs/providers/aws/guide/workflow/|
+|Exploring Invoke Local|https://www.serverless.com/framework/docs/providers/aws/cli-reference/invoke-local/|
+|serverless.yml template for AWS|https://www.serverless.com/framework/docs/providers/aws/guide/serverless.yml/|
 
 ---
 <!-- .slide: class="center" -->
