@@ -132,13 +132,13 @@
 - Pay for Use
 	- Number of requests
 	- Duration of requests
-	- Memory consumed
+	- Memory
 
 ---
 ## Lambda Function Concurrency
 <!-- .slide: class="image-right image-ten" -->
 ![](./images/aws/00-icons/lambda.png) 
-- **Function concurrency** - no of instances serving requests (at a given time)
+- **Function concurrency** - no of Lambda function instances serving requests (at a given time)
 - You invoke a lambda function for the first time:
 	- AWS Lambda creates an instance of the function
 	- AWS Lambda runs the function's handler method and returns  the response
@@ -157,13 +157,14 @@
 ![](./images/arrow.png) 
 ![](./images/aws/00-icons/lambdafunction.png) 
 
-- Most applications today are built around REST API
+- Most applications today are built around REST API:
+	- Resources (/todos, /todos/{id}, etc.)
+	- Actions - HTTP Methods - GET, PUT, POST, DELETE etc.
 - Management of REST API is not easy:
 	- You've to take care of authentication and authorization
 	- You've to be able to set limits (rate limiting, quotas) for your API consumers
 	- You've to take care of implementing multiple versions of your API
-	- You would want to monitor your API calls
-	- You would want to be able to cache API requests
+	- You would want to implement monitoring, caching and a lot of other features..
 
 ---
 ## Amazon API Gateway
@@ -226,7 +227,7 @@
 - Integrations define request/response transformation to/from lambda
 - The default is Custom Integration
 - Request can be transformed by configuring Mapping Template in Integration Request
-- Response can be transformed by configuring Mapping Template in Integration Request
+- Response can be transformed by configuring Mapping Template in Integration Response
 
 ---
 ## REST API Gateway - Proxy Integration
@@ -281,18 +282,34 @@
 
 ---
 ## HTTP API - API Gateway
+<!-- .slide: class="image-right image-twenty" -->
+![](./images/aws/00-icons/apigateway.png) 
 
-- Payload format version 1.0
-	- Request and Response structure almost same as REST API - Proxy Integration
-	- Use it if you want to migrate from REST API to HTTP API as is.
-- Payload format version 2.0
-	- Recommended for new applications
-	- Request Event Structure
-		- Is pretty much the same as 1.0 (Minor changes like cookie support)
-	- Lambda function response
-		- API Gateway can infer the response format for you
-		- You can either use the standard response structure (with `statusCode`,`body`, `headers`) or 
+- REST API - API Gateway has a lot of features very few AWS customers made use of 
+- REST API - API Gateway is a little complex to setup (transformations etc)
+- How about creating a simpler API Gateway?
+- Enter "HTTP API"
+	- The naming is confusing
+	- Newer, Cheaper and Low Latency
+	- Simpler
+		- Lesser features
+		- Easier to setup
+		- Example: Makes OAuth Authentication simple
+
+---
+## HTTP API - API Gateway - Payload
+<!-- .slide: class="image-right image-twenty" -->
+![](./images/aws/00-icons/apigateway.png) 
+- Two Versions - 1.0 and 2.0
+- (Recommendation) Use 1.0 for migration from REST API and 2.0 for newer APIs
+- Request Structure
+	- Almost same as REST API - Proxy Integration
+	- 2.0 offers support for cookies and has minor changes
+- Response Structure
+	- Same as REST API - Proxy Integration (with `statusCode`,`body`, `headers`)
+	- In addition, 2.0 supports a simple structure:
 		- Just return a valid response JSON  `return {"message": "Welcome"}`
+
 ---
 ## Amazon Cognito
 <!-- .slide: class="image-right image-twenty" -->
@@ -563,7 +580,7 @@
 			history: true,
 			center: false,
 			slideNumber: true,
-			fragments: false,
+			//fragments: false,
 			transition: 'none', // none/fade/slide/convex/concave/zoom
 
 			// More info https://github.com/hakimel/reveal.js#dependencies
