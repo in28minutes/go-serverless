@@ -10,6 +10,10 @@ exports.handler = async (event) => {
 
     const username = 'in28minutes'
 
+    //AVOID HARDCODING
+    //HTTP API => const username = event.requestContext.authorizer.jwt.claims['cognito:username']
+    //REST API => const username = event.requestContext.authorizer.claims['cognito:username']
+
     var params = {
         //TableName: 'todo',
         TableName: process.env.TODO_TABLE,

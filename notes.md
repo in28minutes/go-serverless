@@ -20,16 +20,13 @@
 
 - async vs sync
   - Lambda function handler
-- Lambda Concurrency
-- Introduction - Lambda, API Gateway, SAM, Serverless Framework
-  - API Gateway - Types and V1, V2 response structures
-- Section Introductions and Conclusions
-- OAuth and JWT - Client Settings Screen (Idtoken, access token, flows)
-- Introduction - Full Stack Application - Architecture and Code - Cognito Integration
 - Getting Full Stack Application up and Running (npm install, ng serve etc)
-- VS Code and Open Project
+  - VS Code and Open Project
+- Introduction - Full Stack Application - Architecture and Code - Cognito Integration
 - Installation - aws cli, aws configure and SAM
 - Hardcoding username in28minutes
+- S3 publish full stack
+- Section Introductions and Conclusions
 
 # Commands
 

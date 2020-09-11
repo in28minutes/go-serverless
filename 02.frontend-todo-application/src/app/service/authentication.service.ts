@@ -19,6 +19,8 @@ export class AuthenticationService {
 
   executeAWSCognitoAuthenticationService(username, password): Observable<any> {
 
+    //https://docs.aws.amazon.com/cognito/latest/developerguide/authentication.html
+
     const obs = Observable.create((observer) => {
 
       const authData = {
