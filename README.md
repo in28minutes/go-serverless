@@ -73,10 +73,10 @@ Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
 ## What you'll learn
 - You will learn to build Serverless Applications in AWS and Azure
 - You will understand about AWS Lambda and API Gateway
-- You will build serverless REST API in AWS Lambda and Azure Functions
-- You will deploy a serverless full stack application to AWS and Azure
-- You will learn to authenticate users with Amazon Cognito and Azure AD B2C
-- You will learn the basics of Amazon DynamoDB and Azure Cosmos DB (MongoDB)
+- You will build Serverless REST API in AWS Lambda and Azure Functions
+- You will deploy a Serverless Full Stack Application to AWS and Azure
+- You will learn to Authenticate users with Amazon Cognito and Azure AD B2C
+- You will learn the Basics of Amazon DynamoDB and Azure Cosmos DB (MongoDB)
 - You will Master Fundamentals of Serverless from Zero, no previous experience required
 
 ## Requirements
@@ -201,7 +201,7 @@ Each of these courses come with
 ✔ Free Udemy Certificate of Completion on Completion of Course
 
 
-~~~ Here are a Few Reviews on The in28Minutes Way ~~~
+*** Here are a Few Reviews on The in28Minutes Way ***
 
 ★★★★★ Excellent, fabulous. The way he has prepared the material and the way he teaches is really awesome. What an effort .. Thanks a million
 ★★★★★ A lot of preparation work has taken place from the teacher and this is visible throughout the course.
