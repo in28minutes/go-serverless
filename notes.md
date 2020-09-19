@@ -1,32 +1,4 @@
 # Todo
-- Reuse Videos
-  - Step 01 - Introduction to Cloud and AWS ((Needs Editing))
-  - Step 02 - Creating an AWS Root Account
-  - Step 01 - Need for Regions and Zones
-  - Step 02 - Introduction to Regions and Availability Zones
-  - Step 03 - Creating an IAM User For Your AWS Account
-  - Step 01 - Its Your Responsibility to Monitor Billing on the Cloud - 5 Recomm (Needs Editing)
-  - Step 02 - Monitor AWS Billing Setting Billing Alerts
-  - Step 02 - Getting Started with SQS
-  - Step 03 - Sending and Receiving a Messaging using SQS
-  - Step 08 - 01 - Creating an Amazon SQS Queue and Playing with
-  - Step 01 - Getting Started with Amazon DynamoDB
-  - Step 02 - Understanding Amazon DynamoDB Tables
-  - Getting Started with Simple Notification Service
-  - Creating an SNS Topic and Registering a Lambda
-  - Registering an SQS Queue as a subscriber to an
-  - Getting Started with Amazon Cognito for Authentication
-  - Understanding Cognito User Pools and Identity Pools
-
-- async vs sync
-  - Lambda function handler
-- Getting Full Stack Application up and Running (npm install, ng serve etc)
-  - VS Code and Open Project
-- Introduction - Full Stack Application - Architecture and Code - Cognito Integration
-- Installation - aws cli, aws configure and SAM
-- Hardcoding username in28minutes
-- S3 publish full stack
-- Section Introductions and Conclusions
 
 # Commands
 

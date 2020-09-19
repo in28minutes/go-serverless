@@ -11,6 +11,7 @@ exports.handler = async (event) => {
     const username = 'in28minutes'
 
     //AVOID HARDCODING
+    //JSON.stringify(event.requestContext.authorizer.jwt)
     //HTTP API => const username = event.requestContext.authorizer.jwt.claims['cognito:username']
     //REST API => const username = event.requestContext.authorizer.claims['cognito:username']
 

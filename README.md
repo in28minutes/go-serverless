@@ -2,13 +2,21 @@
 
 TODO : ADD COURSE IMAGE
 
-## Learn Serverless Architecture with AWS Lambda and Azure Functions. JavaScript ( nodejs) and python framework examples and patterns.
+## Learn Serverless Architecture with AWS Lambda and Azure Functions. JavaScript (nodejs) framework examples and patterns. With SAM and Serverless Framework.
 
-Categories: Amazon AWS, AWS Lambda, Microsoft Azure, 
+Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
 
 ## Recording Todo List
+- Course Introduction and Conclusions
+- Section Introductions and Conclusions
+- Azure Section Intro
+- Does the Dynamo DB creation (04 first step) match with the flow?
 
 ## Course Release Checklist
+- APPENDIX - FRONTEND FOR AZURE
+- Text Lectures
+  - Structure of Todo before Dynamo DB creation (04 first step)
+  - Github repo links where needed
 - Cognito (NOT IN FREE TIER)
 - Make Github Repo Public
 - Course Content
@@ -63,59 +71,19 @@ Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
 
 
 ## What you'll learn
-- You will learn to Topic No 1
-- You will understand about Topic No 1
-- You will develop a great application
-- You will learn to design and develop SOAP and RESTful web services with Spring Boot
-- You will learn the magic of Spring Boot - Auto Configuration, Spring Initializr and Starter Projects
-- You will Learn the Best Practices in Developing Awesome Java Spring Applications from an Expert with 20 Years of Programming Experience
-- You will Acquire ALL the SKILLS to demonstrate an EXPERTISE with Spring Framework in Your Job Interviews
-- You will Acquire ALL the Python Skills needed to TRANSITION into Analytics, Machine Learning and Data Science Roles
-- You will Develop a REAL-TIME project with Angular and Spring Boot from SCRATCH
-- You will Join 250,000 Learners having AMAZING LEARNING Experiences with in28Minutes
-- You will Learn Spring Framework the MODERN WAY - The way Real Projects use it!
-- You will Become a COMPLETE Spring Developer - With the ability to write Great Unit Tests
-- You will Go from a Total Beginner to an Experienced Spring Developer
-- You will Become the go to guy for Fixing Spring Framework problems in Your Project
-- You will Build an Amazing Single Page Application combining Angular with Spring Boot REST APIs
-- You will Master Fundamentals of Spring Framework from Zero, no previous experience required
-- You will Learn Basics of ....
-- You will Get expertise in the toolchain supporting Spring, including Spring Boot, Maven, Eclipse, JUnit and Mockito
-- You will Understand the LATEST frameworks and technologies, including Spring Boot, Maven, Eclipse, JUnit and Mockito.
-- You will learn to connect web services to JPA/Hibernate with Spring Boot
-- You will understand how to implement Exception Handling, Validation, HATEOAS and filtering for RESTful Web Services.
-- You will learn to use a wide variety of Spring Boot Starter Projects - Spring Boot Web, Spring Boot Web Services, Spring Boot Data JPA
-- You will learn how to version, monitor (Spring Boot Actuator) and document (Swagger) your RESTful Web Services with Spring Boot
-- You will understand the best practices in designing RESTful web services
-- You will understand about WSDL, SOAP Header, SOAP Body, SOAP Fault, XSD, JAXB and EndPoint
-- You will develop a Todo Management Application step by step with login and logout functionalities
-- You will learn to use an Annotation based approach - @RequestParam, @ModelAttribute, @SessionAttributes
-- You will understand the basics of developing a Web Application - POST, GET, HTTP, MVC Pattern
-- You will learn the basics of JSP, JSTL, EL, Spring Tag Libraries
-- You will learn some of the magic of Spring Boot
-- You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
-- You will learn the magic of Spring Boot - Auto Configuration, Spring Initializr and Starter Projects
-- You will learn to develop RESTful web services with Spring Boot
-- You will learn to develop a Web Application connecting to JPA/Hibernate Step by Step with Spring MVC and Spring Boot
-- You will learn to use a wide variety of Spring Boot Starter Projects - Spring Boot Web, Spring Boot Test, Spring Boot Data JPA, Spring Boot Data REST
-- You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
-- You will understand how to make best use of Spring Boot Actuator and Spring Boot Developer Tools
-- You will learn how to externalise application configuration using Spring Boot Profiles and Dynamic Configuration
-- You will understand and use the embedded servlet container options provided by Spring Boot - Tomcat, Jetty and Undertow
-- You will learn to write great Unit and Integration tests using Spring Boot Starter Test
-- You will learn the basics of Spring Framework - Dependency Injection, IOC Container, Application Context and Bean Factory.
-- You will understand how to use Spring Annotations - @Autowired, @Component, @Service, @Repository, @Configuration, @Primary....
-- You will understand Spring MVC in depth - DispatcherServlet , Model, Controllers and ViewResolver
-- You will use a variety of Spring Boot Starters - Spring Boot Starter Web, Starter Data Jpa, Starter Test
-- You will learn the basics of Spring Boot, Spring AOP, Spring JDBC and JPA
-- You will learn the basics of Eclipse, Maven, JUnit and Mockito
-- You will develop a basic Web application step by step using JSP Servlets and Spring MVC
-- You will learn to write unit tests with XML, Java Application Contexts and Mockito
+- You will learn to build Serverless Applications in AWS and Azure
+- You will understand about AWS Lambda and API Gateway
+- You will build serverless REST API in AWS Lambda and Azure Functions
+- You will deploy a serverless full stack application to AWS and Azure
+- You will learn to authenticate users with Amazon Cognito and Azure AD B2C
+- You will learn the basics of Amazon DynamoDB and Azure Cosmos DB (MongoDB)
+- You will Master Fundamentals of Serverless from Zero, no previous experience required
 
 ## Requirements
 - You have an attitude to learn while having fun :)
-- You have some programming experience with Java and you are a Spring Framework beginner
-- This not a beginner course — You should be confident in coding HTML and CSS before taking the course
+- ZERO serverless experience is expected
+- ZERO cloud experience (AWS or Azure) is expected
+- You will need Azure and AWS accounts to build the serverless applications
 
 ## Copy Writing Phrases For This Course
 
@@ -247,115 +215,141 @@ Each of these courses come with
 Start Learning Now. Hit the Enroll Button!
 
 ******* Step By Step Details *******
-- 01 Step 01 - 
-- 01 Step 02 - 
-- 01 Step 03 - 
-- 01 Step 04 - 
-- 01 Step 05 - 
-- 01 Step 06 - 
-- 01 Step 07 - 
-- 01 Step 08 - 
-- 02 Step 01 - 
-- 02 Step 02 - 
-- 02 Step 03 - 
-- 02 Step 04 - 
-- 02 Step 05 - 
-- 02 Step 06 - 
-- 02 Step 07 - 
-- 02 Step 08 - 
-- 03 Step 01 - 
-- 03 Step 02 - 
-- 03 Step 03 - 
-- 03 Step 04 - 
-- 03 Step 05 - 
-- 03 Step 06 - 
-- 03 Step 07 - 
-- 03 Step 08 - 
-- 04 Step 01 - 
-- 04 Step 02 - 
-- 04 Step 03 - 
-- 04 Step 04 - 
-- 04 Step 05 - 
-- 04 Step 06 - 
-- 04 Step 07 - 
-- 04 Step 08 - 
-- 05 Step 01 - 
-- 05 Step 02 - 
-- 05 Step 03 - 
-- 05 Step 04 - 
-- 05 Step 05 - 
-- 05 Step 06 - 
-- 05 Step 07 - 
-- 05 Step 08 - 
-- 06 Step 01 - 
-- 06 Step 02 - 
-- 06 Step 03 - 
-- 06 Step 04 - 
-- 06 Step 05 - 
-- 06 Step 06 - 
-- 06 Step 07 - 
-- 06 Step 08 - 
-- 07 Step 01 - 
-- 07 Step 02 - 
-- 07 Step 03 - 
-- 07 Step 04 - 
-- 07 Step 05 - 
-- 07 Step 06 - 
-- 07 Step 07 - 
-- 07 Step 08 - 
-- 08 Step 01 - 
-- 08 Step 02 - 
-- 08 Step 03 - 
-- 08 Step 04 - 
-- 08 Step 05 - 
-- 08 Step 06 - 
-- 08 Step 07 - 
-- 08 Step 08 - 
-- 09 Step 01 - 
-- 09 Step 02 - 
-- 09 Step 03 - 
-- 09 Step 04 - 
-- 09 Step 05 - 
-- 09 Step 06 - 
-- 09 Step 07 - 
-- 09 Step 08 - 
+#### Getting Started with Cloud and AWS
+- Step 01 - Introduction to Cloud and AWS
 
-- 01 Step 01 - 
-- 01 Step 02 - 
-- 01 Step 03 - 
-- 01 Step 04 - 
-- 01 Step 05 - 
-- 01 Step 06 - 
-- 01 Step 07 - 
-- 01 Step 08 - 
-- 01 Step 09 - 
-- 01 Step 10 - 
-- 01 Step 11 - 
-- 01 Step 12 - 
-- 01 Step 13 - 
-- 01 Step 14 - 
-- 01 Step 15 - 
-- 01 Step 16 - 
-- 01 Step 17 - 
-- 01 Step 18 - 
-- 01 Step 19 - 
-- 01 Step 20 - 
-- 01 Step 21 - 
-- 01 Step 22 - 
-- 01 Step 23 - 
-- 01 Step 24 - 
-- 01 Step 25 - 
-- 01 Step 26 - 
-- 01 Step 27 - 
-- 01 Step 28 - 
-- 01 Step 29 - 
-- 01 Step 30 - 
-- 01 Step 31 - 
-- 01 Step 32 - 
-- 01 Step 33 - 
-- 01 Step 34 - 
-- 01 Step 35 - 
+#### Getting Started with Serverless and AWS Lambda
+- Step 01 - What is Serverless?
+- Step 02 - Getting started with AWS Lambda
+- Step 03 - Creating Your First Serverless Function with AWS Lambda
+- Step 04 - Understanding Your First Serverless Function - AWS Lambda Event and Response
+- Step 05 - Playing with Your First Serverless Function - AWS Lambda Context
+- Step 06 - Playing with Your First Serverless Function - AWS Lambda Basic Settings
+- Step 07 - Monitoring your AWS Lambda Serverless Functions - CloudWatch and XRay
+- Step 08 - Versioning your AWS Lambda Serverless Functions - Versions and Alias
+- Step 09 - Understanding AWS Lambda Function Concurrency and Execution Context
 
+#### Getting Started with AWS API Gateway
+- Step 01 - Getting started with AWS API Gateway
+- Step 02 - Getting started with AWS API Gateway - API Types - HTTP, REST and WebSockets
+- Step 03 - Creating Your First AWS API Gateway - REST API
+- Step 04 - Understanding the Basics of Handling Request with AWS REST API Gateway
+- Step 05 - Playing with AWS REST API Gateway - Customizing Mock Response and Headers
+- Step 06 - Integrating AWS REST API Gateway with Lambda Integration
+- Step 07 - Playing with API Gateway - Using Mapping Template to map Request Headers and Params
+- Step 08 - Playing with API Gateway - Creating POST Method
+- Step 09 - Playing with API Gateway - Validation Request Body using Model Schema
+- Step 10 - Playing with API Gateway - Customizing Response Headers and Validation
+- Step 11 - Deploying API Gateways - Creating a new Stage
+- Step 12 - Understanding AWS REST API Gateway Integrations - Custom vs Proxy Integration
+- Step 13 - Exploring REST API Gateway Lambda Proxy Integration
+- Step 14 - Implementing Rate Limiting and API Keys using AWS API Gateway
+- Step 15 - Exploring AWS API Gateway Stages
+- Step 16 - Getting Started with AWS API Gateway - HTTP API
+- Step 17 - Creating HTTP API - AWS API Gateway
+- Step 18 - Exploring HTTP API - AWS API Gateway
+- Step 19 - Exploring HTTP API - AWS API Gateway Further
+
+#### Building REST API with AWS Lambda and AWS API Gateway
+- Step 01 - Getting started with building REST API for Todo Management Full Stack Application
+- Step 02 - Getting Started with Amazon DynamoDB
+- Step 03 - Understanding Amazon DynamoDB Tables
+- Step 04 - Creating Todo Table in Amazon DynamoDB
+- Step 05 - Creating AWS Lambda Function and API Gateway for Get Todo API
+- Step 06 - Connecting getTodo Lambda Function with DynamoDB
+- Step 07 - Finalizing get todo REST API - Permissions and Testing
+- Step 08 - Understanding AWS Lambda Function Handlers - async vs non async 
+- Step 09 - Creating List Todos Lambda Function
+- Step 10 - Connecting List Todos Lambda Function with API Gateway
+- Step 11 - Getting Started with Full Stack Application - Angular Frontend
+- Step 12 - Integrating Angular Frontend with Serverless REST API - CORS
+- Step 13 - Implementing Update Todo API with Lamdba and API Gateway
+- Step 13 - ZZ - COURSE UPDATE - Use new role for every lambda function
+- Step 14 - Creating AWS Lambda Function for Create Todo
+- Step 15 - Integrating Create Todo Lambda with API Gateway and Frontend
+- Step 16 - Implementing Delete Todo API with Lamdba and API Gateway
+- Step 19 - Creating Amazon Cognito User Pool for Todo Application
+- Step 20 - Playing with Amazon Cognito - Configuring App Client and User Flow
+- Step 21 - Playing with Amazon Cognito - Creating Pre Signup Trigger for Confirming User
+- Step 22 - Creating Authorizer in API Gateway and enabling Authentication for REST API
+- Step 23 - Integrating Angular Frontend with Amazon Cognito User Pool
+- Step 24 - Exploring integration of Angular Frontend with Cognito User Pool
+
+#### Building REST API with AWS Lambda and AWS API Gateway (HTTP API)
+- Step 01 - Creating HTTP API - API Gateway - Using Import
+- Step 02 - Configuring HTTP API - API Gateway - CORS and Lambda Integrations
+- Step 03 - Creating JWT Authorizer and Enabling Authentication for REST API
+
+#### Building AWS Serverless Apps with AWS SAM - Serverless Application Model
+- Step 01 - Getting Started with AWS SAM - Serverless Application Model
+- Step 02 - Getting Started with AWS SAM - Installing Required Tools
+- Step 03 - Creating and Deploying a Serverless Application with AWS SAM
+- Step 04 - Exploring AWS SAM Template
+- Step 05 - Exploring AWS resources created by SAM - Lambda, API Gateway and CloudFormation Stack
+- Step 06 - Configuring HTTP API Gateway and Exploring Change Sets 
+- Step 07 - Creating List Todo Function using SAM - Automating DynamoDB permissions
+- Step 08 - Configuring SAM Globals - AWS Lambda Environment Variables
+- Step 09 - Configuring JWT Authorizer for HTTP API Gateway in AWS SAM
+- Step 10 - Creating Get Todo REST API using AWS SAM
+- Step 11 - Creating Update Todo REST API using AWS SAM
+- Step 12 - Creating Delete Todo and Create Todo REST API using AWS SAM
+- Step 13 - Creating DynamoDB Table using AWS SAM
+- Step 14 - Learning more about Serverless Application Model - References
+
+#### Building AWS Serverless Apps with Serverless Framework
+- Step 01 - Getting Started with Serverless Framework
+- Step 02 - Getting Ready for Serverless Framework - Installation and Configuration
+- Step 03 - Creating an AWS Serverless Project using Serverless Framework
+- Step 04 - Connecting AWS Lambda Function with API Gateway - Serverless Framework Events
+- Step 05 - Configuring HTTP API - API Gateway with Serverless Framework
+- Step 06 - Creating List Todos REST API with Serverless Framework
+- Step 07 - Creating DynamoDB Table using Serverless Framework
+- Step 08 - Configuring JWT Authorizer using Serverless Framework
+- Step 09 - Creating Todo REST API using Serverless Framework
+- Step 09 - Learning more about Serverless Framework - References
+
+#### Appendix - More Serverless in AWS
+- Step 01 - Deploying Angular Frontend Application as Static Website to S3
+- Step 02 - COURSE UPDATE - Using username from Cognito JWT Claims
+- Step 03 - Getting Started with SQS-89dB
+- Step 04 - Sending and Receiving a Messaging using SQS - Best Case-89dB
+- Step 05 - Creating an Amazon SQS Queue and Playing with Messages-89dB
+- Step 06 - Getting Started with Simple Notification Service - SNS-89dB
+- Step 07 - Creating an SNS Topic and Registering a Lambda to Subscribe-89dB
+- Step 08 - Registering an SQS Queue as a subscriber to an SNS Topic-89dB
+
+#### Building Serverless Applicaitons with Azure Functions
+-  Step 01 - Creating an Azure Account
+-  Step 02 - Exploring Cloud Best Practices - Minimize Costs
+-  Step 03 - Creating Your First Azure Serverless Function App
+-  Step 04 - Creating Your First Azure Serverless Function
+-  Step 05 - Playing with Azure Serverless Function - Req and Response
+-  Step 06 - Playing with Azure Serverless Function - Context and Bindings
+-  Step 07 - Getting Ready for Building Azure Functions in Visual Studio Code
+-  Step 08 - Creating Your First Azure Serverless Function App from Visual Studio Code
+-  Step 09 - Running Azure Serverless Function in Local 
+-  Step 10 - Customizing response and bindings for List Todos Function
+-  Step 11 - Creating Azure Cosmos DB Account
+-  Step 12 - Creating Cosmos DB Database and Collections
+-  Step 13 - Connecting listTodo Azure Function with MongoDB
+-  Step 14 - Creating Environment Variables for Database Configuration
+-  Step 15 - Creating Azure Function for List Todos REST API
+-  Step 16 - Connecting Angular Frontend to Azure Functions
+-  Step 17 - Creating Update Todo REST API Azure Function and Connect to Frontend
+-  Step 18 - Creating Delete Todo REST API Azure Function and Connect to Frontend
+-  Step 19 - Creating Create Todo REST API Azure Function and Connect to Frontend
+-  Step 20 - Deploying Azure Function to Azure
+-  Step 21 - Configuring Environment Variables and CORS for Azure Function App Deployment
+-  Step 22 - Creating Azure API Management to Manage Your REST API
+-  Step 23 - Connecting Azure API Management to APIs from Azure Functions App
+-  Step 24 - Connecting Frontend App to REST API through Azure API Management 
+-  Step 25 - Deploying Frontend Application as Static Website in Azure
+-  Step 26 - Creating Azure Active Directory B2C Tenant
+-  Step 27 - Creating Azure Active Directory B2C App Registrations
+-  Step 28 - Creating Azure Active Directory B2C User Flow for Sign in and Sign up
+-  Step 29 - Creating a User for Azure Active Directory B2C 
+-  Step 30 - Connecting Azure API Management with Azure Active Directory B2C 
+-  Step 31 - Connecting Frontend Application with Azure AD authentication
 
 
 Start Learning Now. Hit the Enroll Button!
