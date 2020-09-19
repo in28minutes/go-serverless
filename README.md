@@ -71,11 +71,17 @@ Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
 
 
 ## What you'll learn
-- You will learn to build Serverless Applications in AWS and Azure
-- You will understand about AWS Lambda and API Gateway
-- You will build Serverless REST API in AWS Lambda and Azure Functions
-- You will deploy a Serverless Full Stack Application to AWS and Azure
-- You will learn to Authenticate users with Amazon Cognito and Azure AD B2C
+- You will build Serverless Applications in AWS and Azure
+- You will build Serverless Functions using AWS Lambda
+- You will create REST API in Serverless approach using API Gateway and AWS Lambda
+- You will explore API Gateway Types - HTTP API and REST API in depth
+- You will implement Amazon Cognito User Pool for authenticating users of Serverless Applications
+- You will build Serverless Apps with AWS SAM - Serverless Application Model
+- You will automate building serverless applications in AWS with Serverless Framework and Serverless Application Model
+- You will build AWS Serverless Apps with Serverless Framework
+- You will build Serverless Functions in Azure with Azure Functions
+- You will manage APIs in Azure using Azure API Management
+- You will deploy Angular Frontend Application as Static Website to Amazon S3
 - You will learn the Basics of Amazon DynamoDB and Azure Cosmos DB (MongoDB)
 - You will Master Fundamentals of Serverless from Zero, no previous experience required
 
@@ -134,7 +140,9 @@ Inbox
 ```
 https://links.in28minutes.com/MISC-ANGULAR
 
-How to become a Full Stack Developer? This is the number two question that I’m asked when talking to Programmers and Senior Developers.
+How to take the next step in my career? This is the number one question that I’m asked when I meet learners.
+
+Cloud (AWS, Azure) and Serverless feature prominently in our discussion.
 
 In this course, You will learn the Basics of Full Stack Development developing a Basic Todo Management Application using Angular, Spring Boot and Spring Security Frameworks.
 
@@ -163,9 +171,13 @@ Java Course RoadMap Image at the End!
 
 ## Description
 
-REST?   Yes.      Spring Boot?  Yes      SOAP?   Yes      Best Practices?  Yes    Hands-on?   Of course.    Zero Programming Experience? No Problem. 
+Serverless in AWS and Azure?   Yes.      Lambda Functions?  Yes      API Gateway?   Yes      Azure Functions?  Yes    Full Stack Application?   Of course.    Zero Cloud Experience? No Problem. 
 
-Do you have ZERO programming Experience? Do you want to learn Java with an easy to learn, step by step approach? Are you ready to master Java and take the next step in your programming career? Do you want to Master Building Great Java Web Services - both RESTful and SOAP - with Spring Boot? Do you want to join 250,000+ learners having Amazing Learning Experiences with in28Minutes?
+Do you have ZERO experience with Serverless, AWS and Azure? Do you want to build amazing full stack serverless applications in AWS and Azure with an easy to learn, step by step approach? 
+
+Do you want to learn AWS Lambda, Azure Functions, Amazon API Gateway, Azure API Management, Amazon Cognito and Azure AD B2C? 
+
+Are you ready to learn Serverless and take the next step in your programming career? Do you want to join 250,000+ learners having Amazing Learning Experiences with in28Minutes?
 
 Look No Further!
 
@@ -179,19 +191,21 @@ Look No Further!
 
 ******* Course Overview *******
 
-Developing your first application with XYZ Framework is fun.
+Building Serverless Applications in AWS and Azure is a lot of fun. 
 
-Introduction to XYZ Framework..
+We will start with understanding the fundamentals of building serverless REST API in AWS with Lambda Functions and API Gateway. You will learn to monitor, version and configure your AWS Lambda Functions. You will learn to build your REST API using API Gateway. We will explore the two important types of API Gateway in depth - HTTP API and REST API. You will learn to implement validation, rate limiting and multiple stages with AWS API Gateway.
 
-In this course, you will learn the basics developing a Basic Todo Management Application using XYZ Framework.
+After that, we switch our focus to deploying a full stack todo management application with a serverless approach in AWS. We will use Amazon DynamoDB to store our todos. We will build our REST API using Lambda Functions and API Gateway. We will deploy our Front end application as a static website to Amazon S3. We will use Amazon Cognito to manage and authenticate our users.
 
-You will build the application step by step - in more than 25 steps. This course would be a perfect first step as an introduction to XYZ Framework.
+Building Lambda Functions and configuring API Gateway manually is a pain. We will learn to automate building serverless applications in AWS with Serverless Framework and Serverless Application Model. We will build and deploy a complete Serverless REST API (AWS Lambda + API Gateway + Amazon DynamoDB) with Serverless Framework and Serverless Application Model.
 
-You will be using Spring (Dependency Management), Spring MVC, Spring Boot, Spring Security (Authentication and Authorization), BootStrap (Styling Pages), Maven (dependencies management), Eclipse (IDE) and Tomcat Embedded Web Server. We will help you set up each one of these.
+This course would be a perfect first step as an introduction to serverless in AWS and Azure.
+
+You will be using AWS Lambda (Serverless Functions), API Gateway (API Management), Amazon DynamoDB (Database), Amazon S3 (to deploy frontend application), Amazon Cognito (Authentication and Authorization), Azure Functions (Serverless Functions), Azure API Management and Azure AD B2C (Authentication). We will be using Visual Studio Code as the IDE.
 
 ******* What You Can Expect from Every in28Minutes Course *******
 
-in28Minutes created 20 Best Selling Courses providing Amazing Learning Experiences to 250,000 Learners across the world.
+in28Minutes offers 30 Best Selling Courses providing Amazing Learning Experiences to 500,000 Learners across the world.
 
 Each of these courses come with
 ✔ Amazing Hands-on Step By Step Learning Experiences
@@ -211,10 +225,10 @@ Each of these courses come with
 ★★★★★ Amazing course. Explained super difficult concepts (that I have spent hours on the internet finding a good explanation) in under 5 minutes.
 
 
-
 Start Learning Now. Hit the Enroll Button!
 
 ******* Step By Step Details *******
+
 #### Getting Started with Cloud and AWS
 - Step 01 - Introduction to Cloud and AWS
 
@@ -318,7 +332,7 @@ Start Learning Now. Hit the Enroll Button!
 - Step 07 - Creating an SNS Topic and Registering a Lambda to Subscribe-89dB
 - Step 08 - Registering an SQS Queue as a subscriber to an SNS Topic-89dB
 
-#### Building Serverless Applicaitons with Azure Functions
+#### Building Serverless Applications with Azure Functions
 -  Step 01 - Creating an Azure Account
 -  Step 02 - Exploring Cloud Best Practices - Minimize Costs
 -  Step 03 - Creating Your First Azure Serverless Function App
