@@ -2,13 +2,16 @@
 
 TODO : ADD COURSE IMAGE
 
-## Learn Serverless Architecture with AWS Lambda and Azure Functions. JavaScript (nodejs) framework examples and patterns. With SAM and Serverless Framework.
+## Learn Serverless Architecture with AWS Lambda and Azure Functions.  JavaScript (nodejs) framework examples and patterns. With SAM and Serverless Framework.
 
-Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
+#### Quick Links
+- [Learning Basics of AWS Lambda and API Gateway](https://github.com/in28minutes/go-serverless/blob/master/00.aws/getting-started-lambda-api-gateway.md) 
+
 
 ## Recording Todo List
 - Course Introduction and Conclusions
 - Section Introductions and Conclusions
+  - 05-Step-01---Getting-started-with-building-REST-API-for-Todo-Management-Full-Stack-Application
 - Azure Section Intro
 - Does the Dynamo DB creation (04 first step) match with the flow?
 
