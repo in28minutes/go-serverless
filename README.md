@@ -6,7 +6,9 @@ TODO : ADD COURSE IMAGE
 
 #### Quick Links
 - [Learning Basics of AWS Lambda and API Gateway](https://github.com/in28minutes/go-serverless/blob/master/00.aws/getting-started-lambda-api-gateway.md) 
-
+- [Building Serverless REST API with Serverless Framework](https://github.com/in28minutes/go-serverless/blob/master/00.aws/serverless-framework/serverless-code.md)
+- [Building Serverless REST API with SAM - Serverless Application Model](https://github.com/in28minutes/go-serverless/blob/master/00.aws/sam/todo-sam-app/sam-code.md)
+- [Building Serverless REST API with Azure Functions](https://github.com/in28minutes/go-serverless/blob/master/01.azure/azure-rest-api/azure.md)
 
 ## Recording Todo List
 - Course Introduction and Conclusions
