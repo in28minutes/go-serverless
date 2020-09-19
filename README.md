@@ -77,7 +77,7 @@ Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
 - You will explore API Gateway Types - HTTP API and REST API in depth
 - You will implement Amazon Cognito User Pool for authenticating users of Serverless Applications
 - You will build Serverless Apps with AWS SAM - Serverless Application Model
-- You will automate building serverless applications in AWS with Serverless Framework and Serverless Application Model
+- You will automate building Serverless applications in AWS with Serverless Framework and Serverless Application Model
 - You will build AWS Serverless Apps with Serverless Framework
 - You will build Serverless Functions in Azure with Azure Functions
 - You will manage APIs in Azure using Azure API Management
@@ -87,9 +87,9 @@ Categories: Amazon AWS, AWS Lambda, Microsoft Azure,
 
 ## Requirements
 - You have an attitude to learn while having fun :)
-- ZERO serverless experience is expected
+- ZERO Serverless experience is expected
 - ZERO cloud experience (AWS or Azure) is expected
-- You will need Azure and AWS accounts to build the serverless applications
+- You will need Azure and AWS accounts to build the Serverless applications
 
 ## Copy Writing Phrases For This Course
 
@@ -173,7 +173,7 @@ Java Course RoadMap Image at the End!
 
 Serverless in AWS and Azure?   Yes.      Lambda Functions?  Yes      API Gateway?   Yes      Azure Functions?  Yes    Full Stack Application?   Of course.    Zero Cloud Experience? No Problem. 
 
-Do you have ZERO experience with Serverless, AWS and Azure? Do you want to build amazing full stack serverless applications in AWS and Azure with an easy to learn, step by step approach? 
+Do you have ZERO experience with Serverless, AWS and Azure? Do you want to build amazing full stack Serverless applications in AWS and Azure with an easy to learn, step by step approach? 
 
 Do you want to learn AWS Lambda, Azure Functions, Amazon API Gateway, Azure API Management, Amazon Cognito and Azure AD B2C? 
 
@@ -193,13 +193,13 @@ Look No Further!
 
 Building Serverless Applications in AWS and Azure is a lot of fun. 
 
-We will start with understanding the fundamentals of building serverless REST API in AWS with Lambda Functions and API Gateway. You will learn to monitor, version and configure your AWS Lambda Functions. You will learn to build your REST API using API Gateway. We will explore the two important types of API Gateway in depth - HTTP API and REST API. You will learn to implement validation, rate limiting and multiple stages with AWS API Gateway.
+We will start with understanding the fundamentals of building Serverless REST API in AWS with Lambda Functions and API Gateway. You will learn to monitor, version and configure your AWS Lambda Functions. You will learn to build your REST API using API Gateway. We will explore the two important types of API Gateway in depth - HTTP API and REST API. You will learn to implement validation, rate limiting and multiple stages with AWS API Gateway.
 
-After that, we switch our focus to deploying a full stack todo management application with a serverless approach in AWS. We will use Amazon DynamoDB to store our todos. We will build our REST API using Lambda Functions and API Gateway. We will deploy our Front end application as a static website to Amazon S3. We will use Amazon Cognito to manage and authenticate our users.
+After that, we switch our focus to deploying a full stack todo management application with a Serverless approach in AWS. We will use Amazon DynamoDB to store our todos. We will build our REST API using Lambda Functions and API Gateway. We will deploy our Front end application as a static website to Amazon S3. We will use Amazon Cognito to manage and authenticate our users.
 
-Building Lambda Functions and configuring API Gateway manually is a pain. We will learn to automate building serverless applications in AWS with Serverless Framework and Serverless Application Model. We will build and deploy a complete Serverless REST API (AWS Lambda + API Gateway + Amazon DynamoDB) with Serverless Framework and Serverless Application Model.
+Building Lambda Functions and configuring API Gateway manually is a pain. We will learn to automate building Serverless applications in AWS with Serverless Framework and Serverless Application Model. We will build and deploy a complete Serverless REST API (AWS Lambda + API Gateway + Amazon DynamoDB) with Serverless Framework and Serverless Application Model.
 
-This course would be a perfect first step as an introduction to serverless in AWS and Azure.
+This course would be a perfect first step as an introduction to Serverless in AWS and Azure.
 
 You will be using AWS Lambda (Serverless Functions), API Gateway (API Management), Amazon DynamoDB (Database), Amazon S3 (to deploy frontend application), Amazon Cognito (Authentication and Authorization), Azure Functions (Serverless Functions), Azure API Management and Azure AD B2C (Authentication). We will be using Visual Studio Code as the IDE.
 
