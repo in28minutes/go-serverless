@@ -79,28 +79,7 @@ This course would be a perfect first step as an introduction to Serverless in AW
 
 You will be using AWS Lambda (Serverless Functions), API Gateway (API Management), Amazon DynamoDB (Database), Amazon S3 (to deploy frontend application), Amazon Cognito (Authentication and Authorization), Azure Functions (Serverless Functions), Azure API Management and Azure AD B2C (Authentication). We will be using Visual Studio Code as the IDE.
 
-
-## Recording Todo List
-- Course Introduction and Conclusions
-- Section Introductions and Conclusions
-  - 05-Step-01---Getting-started-with-building-REST-API-for-Todo-Management-Full-Stack-Application
-- Azure Section Intro
-- Does the Dynamo DB creation (04 first step) match with the flow?
-
 ## Course Release Checklist
-- Instructor Sharing
-- APPENDIX - FRONTEND FOR AZURE
-- Text Lectures
-  - Structure of Todo before Dynamo DB creation (04 first step)
-  - Github repo links where needed
-- Cognito (NOT IN FREE TIER)
-- Make Github Repo Public
-- Course Content
-  - Title, SubTitle and Description with Keyword Analysis (wordcounter.net)
-  - Course Image
-  - Welcome and Course Completion Message
-  - Bonus Lecture
-  - Bold Keywords in Description
 - Post Course Creation
   - Course Promotion Emails/Posts
     - 2 Emails on Udemy
@@ -116,10 +95,9 @@ You will be using AWS Lambda (Serverless Functions), API Gateway (API Management
   - Create YouTube Course Preview Video
     - Add YouTube Course Preview Video as End Video for all videos
     - Make it the YouTube Default Video
-  - Release atleast 20 small videos - one a day on Youtube
   - Do atleast 3 Youtube live sessions
   - After a Month
-    - UFB and Packt
+    - UFB
 
 ## Step By Step Details
 
