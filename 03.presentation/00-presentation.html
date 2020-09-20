@@ -47,18 +47,15 @@
 			<section data-markdown data-separator="---">
 
 				<script type="text/template">
-
 <!-- .slide: class="center" -->
 # Go Serverless
-# with AWS & Azure
-
+# in AWS & Azure
 ---
-## Review
+## AWS Serverless Architecture
 ![](./images/aws/05-serverless-course/aws-serverless-full-stack.png)
-
 ---
-<!-- .slide: class="center" -->
-# AWS - Getting started
+## Azure Serverless Architecture
+![](./images/aws/05-serverless-course/azure-serverless-full-stack.png)
 
 ---
 ## Before the Cloud
@@ -344,55 +341,6 @@
 	- ex: Amazon, Apple, Facebook, OpenID or SAML identity providers
 
 ---
-## Amazon S3 (Simple Storage Service)
-![](./images/aws/00-icons/s3.png)
-<!-- .slide: class="image-right image-twenty" -->
-- **Most popular, very flexible & inexpensive** storage service
-- Store large objects using a **key-value** approach
-- Also called **Object Storage**
-- Provides REST API to access and modify objects
-- Provides **unlimited storage**:
-	- (S3 storage class) **99.99% availability** & **(11 9's - 99.999999999) durability**
-	- Objects are **replicated in a single region (across multiple AZs)**
-- **Store all file types** - text, binary, backup & archives:
-	- Media files and archives
-	- Application packages and logs
-	- Backups of your databases or storage devices
-	- Staging data during on-premise to cloud database migration
-
----
-## Amazon S3 Demo
-- DEMO
-
----
-## Amazon S3 Static Website Hosting
-- Use S3 to host a static website using a bucket
-- Step 1 : Upload website content
-- Step 2 : Enable **Static website hosting**
-- Step 3 : Disable "Block public access"
-- Step 4 : Configure "Bucket policy" to enable public read access
-
----
-## Resource-based policies - Bucket policies
-```
-{
-	"Version":"2012-10-17",
-	"Statement":[
-	{
-		"Sid":"PublicRead",
-		"Effect":"Allow",
-		"Principal": "*",
-		"Action":["s3:GetObject"],
-		"Resource":["arn:aws:s3:::mybucket/*"]
-	}
-	]
-}
-```
-
-- Control access to your bucket and objects
-- Can grant **cross account** and **public** access	
-
----
 ## Amazon DynamoDB 
 <!-- .slide: class="image-right image-twenty" -->
 ![](./images/aws/00-icons/dynamodb.png) 
@@ -539,6 +487,10 @@
 	- Node Js (npm)
 	- Visual Studio Code 
 	- Angular CLI
+---
+## Azure Serverless Architecture
+![](./images/aws/05-serverless-course/azure-serverless-full-stack.png)
+
 ---
 <!-- .slide: class="center" -->
 # You are all set!
