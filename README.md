@@ -6,6 +6,10 @@
 - [Building Serverless REST API with SAM - Serverless Application Model](https://github.com/in28minutes/go-serverless/blob/master/00.aws/sam/todo-sam-app/sam-code.md)
 - [Building Serverless REST API with Azure Functions](https://github.com/in28minutes/go-serverless/blob/master/01.azure/azure-rest-api/azure.md)
 
+## Course Link
+
+- https://www.udemy.com/course/serverless-tutorial-aws-lambda-and-azure-functions/?referralCode=FEE4D6C2FE67B6F1C228
+
 ## Course Description
 
 Learn Serverless Architecture with AWS Lambda and Azure Functions.  JavaScript (nodejs) framework examples and patterns. With SAM and Serverless Framework.
